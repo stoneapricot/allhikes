@@ -80,8 +80,30 @@ const T = {
 const LOC = {en:"en-GB",hy:"hy-AM",ru:"ru-RU"};
 const TODAY = new Date().toLocaleDateString("en-CA", {timeZone:"Asia/Yerevan"});
 
+/* ---------- Telegram Mini App ----------
+   The same pages open inside Telegram from the bot's menu button. Telegram adds
+   #tgWebAppData=… to the first URL; we remember that for the session (the hash is gone
+   after clicking to another page), and only then load Telegram's script. */
+const ss = (k, v) => { try { return v === undefined ? sessionStorage.getItem(k) : sessionStorage.setItem(k, v); } catch(e){ return null; } };
+const HASH = new URLSearchParams(location.hash.slice(1));
+if(HASH.get("tgWebAppData")) ss("ah-tg", "1");
+const IN_TG = ss("ah-tg") === "1";
+function tgLang(){
+  try { return JSON.parse(new URLSearchParams(HASH.get("tgWebAppData")).get("user")).language_code.slice(0,2); } catch(e){ return ""; }
+}
+if(IN_TG){
+  /* Use Telegram's light/dark straight away, before its script arrives, so nothing flashes. */
+  try {
+    const bg = JSON.parse(HASH.get("tgWebAppThemeParams")).bg_color, n = parseInt(bg.slice(1), 16);
+    ss("ah-theme", ((n >> 16) * .299 + (n >> 8 & 255) * .587 + (n & 255) * .114) < 128 ? "dark" : "light");
+  } catch(e){}
+  if(ss("ah-theme")) document.documentElement.dataset.theme = ss("ah-theme");
+  if(tgLang()) ss("ah-tglang", tgLang());
+  document.documentElement.classList.add("tg");
+}
+
 let lang = "en";
-try { lang = localStorage.getItem("allhikes-lang") || (navigator.language || "en").slice(0,2); } catch(e){}
+try { lang = localStorage.getItem("allhikes-lang") || (IN_TG && ss("ah-tglang")) || (navigator.language || "en").slice(0,2); } catch(e){}
 if(!T[lang]) lang = "en";
 const t = k => T[lang][k];
 const esc = s => String(s ?? "").replace(/[&<>"]/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
@@ -197,6 +219,7 @@ function openHikeMap(h){
   if(!d){
     d = document.createElement("dialog"); d.id = "mapdlg"; d.className = "mapdlg";
     d.addEventListener("click", e => { if(e.target === d || e.target.closest(".x")) d.close(); });
+    d.addEventListener("close", tgBackSync);
     document.body.appendChild(d);
   }
   const trs = (h.tr || []).map(id => TRAILS[id]).filter(Boolean);
@@ -204,7 +227,7 @@ function openHikeMap(h){
     <div class="map" id="dlgmap"></div>
     <div class="bd">${trs.length ? `<b>${t("near")}</b><ul>${trs.map((tr, i) => `<li><a href="https://www.openstreetmap.org/relation/${h.tr[i]}" target="_blank" rel="noopener">${esc(tr.name || "Trail")}</a> · ${t("trailKm")(tr.km)}</li>`).join("")}</ul>` : `<p class="muted">${t("noTrail")}</p>`}
     <p class="muted">${t("approx")}</p></div>`;
-  d.showModal();
+  d.showModal(); tgBackSync();
   drawMap($("dlgmap"), [h], {fitTrails: true, maxZoom: 13, wheel: true});
 }
 
@@ -368,7 +391,16 @@ function render(){
   }
 }
 document.addEventListener("click", e => {
+  /* Inside Telegram, outside links (club Instagram, WhatsApp, booking) open in the proper
+     app or browser instead of replacing the mini app; t.me links stay in Telegram. */
+  const a = TG && e.target.closest("a[href]");
+  if(a && a.origin !== location.origin && /^https?:/.test(a.href)){
+    e.preventDefault();
+    if(/^https:\/\/t\.me\//.test(a.href)) TG.openTelegramLink(a.href); else TG.openLink(a.href);
+    return;
+  }
   const b = e.target.closest("button"); if(!b) return;
+  if(TG && TG.HapticFeedback) try { TG.HapticFeedback.selectionChanged(); } catch(err){}
   if(b.dataset.l){ lang = b.dataset.l; try { localStorage.setItem("allhikes-lang", lang); } catch(err){} render(); return; }
   if(b.dataset.map){ openHikeMap(HIKES[+b.dataset.map]); return; }
   if(b.dataset.v){ S.view = b.dataset.v; document.querySelectorAll("[data-v]").forEach(x => x.setAttribute("aria-pressed", x === b)); renderList(); return; }
@@ -413,6 +445,40 @@ function drawTopo(){
 }
 let rt; addEventListener("resize", () => { clearTimeout(rt); rt = setTimeout(drawTopo, 150); });
 matchMedia("(prefers-color-scheme: dark)").addEventListener("change", drawTopo);
+
+/* ---------- Telegram setup (only inside Telegram) ---------- */
+let TG = null;
+function tgBackSync(){
+  if(!TG) return;
+  const dlg = $("mapdlg");
+  (PAGE !== "home" || (dlg && dlg.open)) ? TG.BackButton.show() : TG.BackButton.hide();
+}
+function tgSetup(){
+  const W = window.Telegram && Telegram.WebApp; if(!W) return;
+  TG = W;
+  W.ready(); W.expand();
+  const ok = v => W.isVersionAtLeast && W.isVersionAtLeast(v);
+  if(ok("7.7")) W.disableVerticalSwipes();   // so dragging a map doesn't close the app
+  const theme = () => {
+    document.documentElement.dataset.theme = W.colorScheme; ss("ah-theme", W.colorScheme);
+    const bg = css("--paper");
+    try { if(ok("6.9")){ W.setHeaderColor(bg); W.setBackgroundColor(bg); } if(ok("7.10")) W.setBottomBarColor(bg); } catch(e){}
+    drawTopo();
+  };
+  theme(); W.onEvent("themeChanged", theme);
+  W.BackButton.onClick(() => {
+    const dlg = $("mapdlg");
+    if(dlg && dlg.open) dlg.close();
+    else if(history.length > 1) history.back();
+    else location.href = ROOT;
+  });
+  tgBackSync();
+}
+if(IN_TG){
+  const s = document.createElement("script");
+  s.src = "https://telegram.org/js/telegram-web-app.js?59";
+  s.onload = tgSetup; document.head.appendChild(s);
+}
 
 render();
 })();
