@@ -11,7 +11,7 @@ Writes assets/data.js      everything the pages show (window.AH)
 The look and behaviour live in assets/style.css and assets/app.js (edit those directly).
 """
 import datetime as dt
-import html, json, math, re, shutil
+import hashlib, html, json, math, re, shutil
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
@@ -170,6 +170,8 @@ for x in raw:
     used_trails.update(trs)
     club = club_by_ig.get((x.get("ig") or "").lower())
     data.append({
+        # stable id for sign-ups: Esora's slug, else a short hash of the post link and date
+        "id": x.get("slug") or hashlib.sha1(((x.get("book") or x["name"]["en"]) + day).encode()).hexdigest()[:12],
         "n": x["name"], "d": day, "t": s[11:16] if "T" in s else "", "e": end if end != day else "",
         "o": (club or {}).get("name") or x["org"].strip(), "cs": slug_of(club["ig"]) if club else "",
         "p": price, "c": cur,

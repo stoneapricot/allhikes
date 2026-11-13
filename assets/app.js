@@ -77,6 +77,19 @@ const T = {
     ig:"Instagram",tg:"Telegram",wa:"WhatsApp",web:"Сайт",
     foot:"Данные взяты из открытых анонсов клубов, обновлено {date}. Запись всегда напрямую у клуба. Данные карты © участники OpenStreetMap."}
 };
+/* sign-ups inside the Telegram mini app */
+Object.assign(T.en, {imGoing:"I’m going", going:"You’re going", nGoing:n => `${n} going`, mine:"My hikes",
+  mineSub:"Telegram will remind you the day before.", goNote:"Saved. This doesn’t book a place: book with the club too.",
+  goErr:"Couldn’t save. Check your connection and try again."});
+Object.assign(T.ru, {imGoing:"Я иду", going:"Вы идёте", nGoing:n => `идут: ${n}`, mine:"Мои походы",
+  mineSub:"Накануне Telegram напомнит о походе.", goNote:"Сохранено. Это не бронь: запишитесь и у клуба.",
+  goErr:"Не удалось сохранить. Проверьте интернет и попробуйте ещё раз."});
+Object.assign(T.hy, {imGoing:"Գնում եմ", going:"Դուք գնում եք", nGoing:n => `գնում են՝ ${n}`, mine:"Իմ արշավները",
+  mineSub:"Նախօրեին Telegram-ը կհիշեցնի։", goNote:"Պահված է։ Սա ամրագրում չէ. գրանցվեք նաև ակումբում։",
+  goErr:"Չհաջողվեց պահել։ Ստուգեք կապը և փորձեք կրկին։"});
+/* The Apps Script web app (backend/Code.gs) that keeps sign-ups. Empty = sign-ups off. */
+const API = "";
+
 const LOC = {en:"en-GB",hy:"hy-AM",ru:"ru-RU"};
 const TODAY = new Date().toLocaleDateString("en-CA", {timeZone:"Asia/Yerevan"});
 
@@ -134,6 +147,8 @@ const logo = (c, cls = "") => c ? `<img class="logo ${cls}" src="${ROOT}assets/l
 
 const UP = HIKES.filter(h => h.k !== "big" && (h.e || h.d) >= TODAY);
 const BIG = HIKES.filter(h => h.k === "big" && (h.e || h.d) >= TODAY);
+/* sign-up state: shown only inside Telegram, once API is set */
+const GO = {on: IN_TG && !!API, mine: new Set(), counts: {}};
 const isArarat = h => /ararat|masis/i.test(h.n.en);
 const byDate = (a, b) => (a.d + (a.t || "99")).localeCompare(b.d + (b.t || "99"));
 
@@ -155,6 +170,7 @@ function card(h){
       ${meta ? `<div class="meta">${meta}</div>` : ""}
       ${h.m ? `<p class="meet">${t("meet")} ${esc(h.m)}</p>` : ""}
       ${h.ds ? `<details><summary>${t("more")}</summary><p>${esc(h.ds)}</p></details>` : ""}
+      ${GO.on ? `<div class="going-row"><button type="button" class="going" data-go="${esc(h.id)}" aria-pressed="false">+ ${t("imGoing")}</button><span class="gcount" data-gc="${esc(h.id)}"></span></div>` : ""}
       ${h.loc ? `<button type="button" class="mapbtn" data-map="${HIKES.indexOf(h)}">◉ ${t("onMap")} · ${esc(h.loc[2])}</button>` : ""}
       ${book.replace('class="book"', 'class="book book-m"')}
     </div>
@@ -278,6 +294,7 @@ function homeShell(){
         <input class="chip" id="f-q" type="search" autocomplete="off" placeholder="${t("q")}" value="${esc(S.q)}">
       </div></div></nav>
     <main><div class="wrap">
+      <section id="mine" hidden></section>
       <section id="up">
         <div class="sec-head"><h2>${t("novTitle")}</h2><p id="count"></p></div>
         <div class="viewbar">
@@ -309,6 +326,7 @@ function renderList(){
     drawMap($("bigmap"), rows, {maxZoom: 11});
     return;
   }
+  setTimeout(paintGoing);
   $("list").innerHTML = rows.length ? dayGroups(rows) : `<div class="empty daygroup">${t("none")}<br><button type="button" class="chip" id="clear">${t("clear")}</button></div>`;
 }
 function renderHomeExtras(){
@@ -389,6 +407,7 @@ function render(){
     const el = $("clubmap");
     if(el) drawMap(el, UP.filter(h => h.cs === B.dataset.club), {maxZoom: 11});
   }
+  paintGoing();
 }
 document.addEventListener("click", e => {
   /* Inside Telegram, outside links (club Instagram, WhatsApp, booking) open in the proper
@@ -401,6 +420,7 @@ document.addEventListener("click", e => {
   }
   const b = e.target.closest("button"); if(!b) return;
   if(TG && TG.HapticFeedback) try { TG.HapticFeedback.selectionChanged(); } catch(err){}
+  if(b.dataset.go){ goToggle(b.dataset.go); return; }
   if(b.dataset.l){ lang = b.dataset.l; try { localStorage.setItem("allhikes-lang", lang); } catch(err){} render(); return; }
   if(b.dataset.map){ openHikeMap(HIKES[+b.dataset.map]); return; }
   if(b.dataset.v){ S.view = b.dataset.v; document.querySelectorAll("[data-v]").forEach(x => x.setAttribute("aria-pressed", x === b)); renderList(); return; }
@@ -453,6 +473,49 @@ function tgBackSync(){
   const dlg = $("mapdlg");
   (PAGE !== "home" || (dlg && dlg.open)) ? TG.BackButton.show() : TG.BackButton.hide();
 }
+async function api(body){
+  const res = await fetch(API, {method: "POST", body: JSON.stringify({...body, initData: TG.initData})});
+  const j = await res.json();
+  if(!j.ok) throw new Error(j.error || "failed");
+  return j;
+}
+function gotGoing(j){ GO.mine = new Set(j.mine); GO.counts = j.counts || {}; paintGoing(); }
+function paintGoing(){
+  if(!GO.on) return;
+  const box = $("mine");   // "My hikes" at the top of the home page
+  if(box){
+    const rows = UP.filter(h => GO.mine.has(h.id)).sort(byDate);
+    box.hidden = !rows.length;
+    box.innerHTML = rows.length ? `<div class="sec-head"><h2>${t("mine")}</h2><p>${t("mineSub")}</p></div>${dayGroups(rows)}` : "";
+  }
+  document.querySelectorAll("[data-go]").forEach(b => {
+    const on = GO.mine.has(b.dataset.go);
+    b.setAttribute("aria-pressed", on); b.textContent = (on ? "✓ " : "+ ") + t(on ? "going" : "imGoing");
+  });
+  document.querySelectorAll("[data-gc]").forEach(s => { const n = GO.counts[s.dataset.gc] || 0; s.textContent = n ? t("nGoing")(n) : ""; });
+}
+let goBusy = false;
+async function goToggle(id){
+  if(!TG || !TG.initData || goBusy) return;
+  const h = HIKES.find(x => x.id === id); if(!h) return;
+  const on = !GO.mine.has(id), before = {mine: [...GO.mine], counts: {...GO.counts}};
+  on ? GO.mine.add(id) : GO.mine.delete(id);
+  GO.counts[id] = Math.max(0, (GO.counts[id] || 0) + (on ? 1 : -1));
+  paintGoing(); goBusy = true;
+  try {
+    gotGoing(await api({action: "going", on, hike: {id, name: name(h), date: h.d, club: h.o}}));
+    if(!on) return;
+    try { TG.HapticFeedback.notificationOccurred("success"); } catch(e){}
+    const note = () => TG.showPopup({message: t("goNote"), buttons: [{id: "book", type: "default", text: t("book")}, {type: "close"}]},
+      b => { if(b === "book") TG.openLink(h.b); });
+    const u = TG.initDataUnsafe && TG.initDataUnsafe.user;
+    /* the bot may only send reminders once the person allows it */
+    if(u && !u.allows_write_to_pm && TG.isVersionAtLeast("6.9")) TG.requestWriteAccess(() => note()); else note();
+  } catch(e){
+    gotGoing(before);
+    TG.showAlert(t("goErr"));
+  } finally { goBusy = false; }
+}
 function tgSetup(){
   const W = window.Telegram && Telegram.WebApp; if(!W) return;
   TG = W;
@@ -473,6 +536,7 @@ function tgSetup(){
     else location.href = ROOT;
   });
   tgBackSync();
+  if(GO.on && W.initData) api({action: "me"}).then(gotGoing).catch(() => {});
 }
 if(IN_TG){
   const s = document.createElement("script");
