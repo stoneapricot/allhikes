@@ -88,7 +88,7 @@ Object.assign(T.hy, {imGoing:"Գնում եմ", going:"Դուք գնում եք"
   mineSub:"Նախօրեին Telegram-ը կհիշեցնի։", goNote:"Պահված է։ Սա ամրագրում չէ. գրանցվեք նաև ակումբում։",
   goErr:"Չհաջողվեց պահել։ Ստուգեք կապը և փորձեք կրկին։"});
 /* The Apps Script web app (backend/Code.gs) that keeps sign-ups. Empty = sign-ups off. */
-const API = "";
+const API = "https://script.google.com/macros/s/AKfycbyAzWvlJpKZ5MP7v5qmRWCLzUIV0IzbBbUIDq78UYQfIGUHtu_-SIglijoIXGhTBGm9/exec";
 
 const LOC = {en:"en-GB",hy:"hy-AM",ru:"ru-RU"};
 const TODAY = new Date().toLocaleDateString("en-CA", {timeZone:"Asia/Yerevan"});
