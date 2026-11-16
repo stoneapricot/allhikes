@@ -1,80 +1,5 @@
 [
  {
-  "slug": "verelk-kalasar-22a3dbd8",
-  "name": {
-   "en": "Ascent to Kalasar",
-   "hy": "Վերելք Կալասար",
-   "ru": "Восхождение на Каласар"
-  },
-  "start": "2026-11-15",
-  "end": null,
-  "org": "ONE WAY Tour",
-  "ig": "onewaytour",
-  "place": "Կալասարի քարը (Kalasari qar)",
-  "lat": 39.8815028,
-  "lng": 45.413799999999995,
-  "price": 8500,
-  "book": "https://www.instagram.com/p/De3zkWhCMt-/",
-  "km": null,
-  "gain": null,
-  "summit": null,
-  "diffText": null,
-  "back": null,
-  "meet": null,
-  "desc": "A hiking trip along mountain trails to the summit of Kalasar, with around one hour at the peak to rest, take photos, and take in the views.",
-  "esora": "https://esora.app/en/events/verelk-kalasar-22a3dbd8"
- },
- {
-  "slug": "khayking-v-ushchele-angelov-73c0decd",
-  "name": {
-   "en": "Hiking in Angels' Canyon",
-   "hy": "Հայքինգ Հրեշտակների կիրճում",
-   "ru": "Хайкинг в Ущелье ангелов"
-  },
-  "start": "2026-11-15",
-  "end": null,
-  "org": "Imagine Tour",
-  "ig": "tour_imagine",
-  "place": "Angels' Canyon",
-  "lat": 39.9498788,
-  "lng": 44.74117630000001,
-  "price": null,
-  "book": "https://www.instagram.com/p/DfBzVbCIXxm/",
-  "km": null,
-  "gain": null,
-  "summit": null,
-  "diffText": null,
-  "back": null,
-  "meet": null,
-  "desc": "An adventure to the corner of Armenia home to Khor Virap.",
-  "esora": "https://esora.app/en/events/khayking-v-ushchele-angelov-73c0decd"
- },
- {
-  "slug": "halloween-rope-jumping-6ced2661",
-  "name": {
-   "en": "Rope Jumping: Dragon's Fly 120m",
-   "hy": "Ռոուփ ջամփինգ Dragon’s Fly-ում",
-   "ru": "Роупджампинг в Dragon’s Fly"
-  },
-  "start": "2026-11-15",
-  "end": null,
-  "org": "Scream of Soul",
-  "ig": "scream_of_soul_team",
-  "place": "Yerevan",
-  "lat": null,
-  "lng": null,
-  "price": 40000,
-  "book": "https://www.instagram.com/p/DcB3CJYtIx6/",
-  "km": 125.0,
-  "gain": null,
-  "summit": null,
-  "diffText": null,
-  "back": null,
-  "meet": null,
-  "desc": "Free-fall rope jumping from a height of 120 meters.",
-  "esora": "https://esora.app/en/events/halloween-rope-jumping-6ced2661"
- },
- {
   "slug": "hike-to-meghradzor-waterfall-440b3471",
   "name": {
    "en": "Hiking to Meghradzor Waterfall",
@@ -175,29 +100,29 @@
   "esora": "https://esora.app/en/events/aghavnavanq-hike-outdoor-movie-487ee07e"
  },
  {
-  "slug": "tklorsar-ev-haghartsin-ler-verelk-dd06c0f8",
+  "slug": "verelk-kalasar-22a3dbd8",
   "name": {
-   "en": "Ascent of Mount Tklorsar and Haghartsin",
-   "hy": "Տկլորսար և Հաղարծին լեռ․ վերելք",
-   "ru": "Восхождение на Тклорсар и гору Агарцин"
+   "en": "Ascent to Kalasar",
+   "hy": "Վերելք Կալասար",
+   "ru": "Восхождение на Каласар"
   },
   "start": "2026-11-21",
   "end": null,
-  "org": "Hamshen Tour",
-  "ig": "hamshen_tour",
-  "place": "Yerevan",
-  "lat": null,
-  "lng": null,
+  "org": "ONE WAY Tour",
+  "ig": "onewaytour",
+  "place": "Կալասարի քարը (Kalasari qar)",
+  "lat": 39.8815028,
+  "lng": 45.413799999999995,
   "price": 8500,
-  "book": "https://hamshen.am/hy/tours/tklor?utm_source=esora.app&utm_medium=referral",
+  "book": "https://www.instagram.com/p/De3zkWhCMt-/",
   "km": null,
   "gain": null,
   "summit": null,
   "diffText": null,
   "back": null,
   "meet": null,
-  "desc": "Registration and inquiries: 093 55 14 85, 091 55 14 85, 041 55 14 85, or at 17 Charents Street, Yerevan.",
-  "esora": "https://esora.app/en/events/tklorsar-ev-haghartsin-ler-verelk-dd06c0f8"
+  "desc": "A hiking trip along mountain trails to the summit of Kalasar, with around one hour at the peak to rest, take photos, and take in the views.",
+  "esora": "https://esora.app/en/events/verelk-kalasar-22a3dbd8"
  },
  {
   "slug": "koshaberd-110-escape-a2bc767f",
@@ -250,6 +175,31 @@
   "esora": "https://esora.app/en/events/gnishik-gorge-noravank-hike-785d7cd6"
  },
  {
+  "slug": "tklorsar-ev-haghartsin-ler-verelk-dd06c0f8",
+  "name": {
+   "en": "Ascent to Mount Tklorsar and Mount Haghartsin",
+   "hy": "Տկլորսար և Հաղարծին լեռ․ վերելք",
+   "ru": "Восхождение на Тклорсар и гору Агарцин"
+  },
+  "start": "2026-11-21T07:00:00+04:00",
+  "end": null,
+  "org": "Hamshen Tour",
+  "ig": "hamshen_tour",
+  "place": "Hamshen Tour",
+  "lat": 40.179468899999996,
+  "lng": 44.521760199999996,
+  "price": 9000,
+  "book": "https://hamshen.am/hy/tours/tklor?utm_source=esora.app&utm_medium=referral",
+  "km": 15.0,
+  "gain": 750.0,
+  "summit": 1991.0,
+  "diffText": null,
+  "back": "19:30",
+  "meet": "8 Tumanyan St",
+  "desc": "A mountain hike along the trails of Dilijan with ascents to Mount Tklorsar (1,991 m) and Mount Haghartsin (2,093 m), as well as a visit to Haghartsin Monastery. The peaks offer panoramic views stretching across the Dimats, Areguni, Miapor, and Ijevan mountain ranges.",
+  "esora": "https://esora.app/en/events/tklorsar-ev-haghartsin-ler-verelk-dd06c0f8"
+ },
+ {
   "slug": "tumanyani-hetkerov-dseghi-shrjanadzev-arahet-3b4efe0d",
   "name": {
    "en": "In the Footsteps of Tumanyan: Dsegh Circular Trail",
@@ -275,6 +225,31 @@
   "esora": "https://esora.app/en/events/tumanyani-hetkerov-dseghi-shrjanadzev-arahet-3b4efe0d"
  },
  {
+  "slug": "shunkar-ler-23c881ec",
+  "name": {
+   "en": "Ascent of Mount Shunkar",
+   "hy": "Վերելք Շունքար լեռ",
+   "ru": "Восхождение на гору Шункар"
+  },
+  "start": "2026-11-21T07:00:00+04:00",
+  "end": null,
+  "org": "Aktiv Up",
+  "ig": "aktivup_hiking_club",
+  "place": "SAS",
+  "lat": 40.186403999999996,
+  "lng": 44.522442,
+  "price": 9500,
+  "book": "https://www.instagram.com/p/DfxSyobAHvY/",
+  "km": 17.0,
+  "gain": 1200.0,
+  "summit": 2079.0,
+  "diffText": "moderate",
+  "back": "22:00",
+  "meet": null,
+  "desc": "A moderate hike to Mount Shunkar (2,079 m), located in the Tavush region at the junction of the Miapor and Paytapar mountain ranges. The trail passes through a forest path, offering views of the Ijevan mountains from the summit.",
+  "esora": "https://esora.app/en/events/shunkar-ler-23c881ec"
+ },
+ {
   "slug": "vardaguyn-kirch-vardaguyn-canyon-7299a59b",
   "name": {
    "en": "Eranos Mountains and Pink Canyon Hike",
@@ -295,8 +270,8 @@
   "summit": null,
   "diffText": null,
   "back": null,
-  "meet": "Republic Square, beginning of Vazgen Sargsyan Street, near the Marriott Hotel.",
-  "desc": "A hike exploring the landscapes of the Eranos Mountains and Pink Canyon, known for its pink and reddish rock formations.",
+  "meet": "Republic Square, at the beginning of Vazgen Sargsyan Street near Marriott Hotel.",
+  "desc": "A 16–17 km hike exploring the unique landscapes of the Eranos mountains and the Pink Canyon, known for its reddish and pink rock formations. The circular route starts and ends in the village of Lanjazat.",
   "esora": "https://esora.app/en/events/vardaguyn-kirch-vardaguyn-canyon-7299a59b"
  },
  {
@@ -323,6 +298,31 @@
   "meet": null,
   "desc": "A hike along the slopes of the Teqsar mountains, starting from Vernashen village and ascending through narrow gorges and scenic trails to the 14th-century Spitakavor Monastery, where the remains of Garegin Nzhdeh are laid to rest.",
   "esora": "https://esora.app/en/events/gladzori-kirchov-spitakavor-through-gladzor-gorge-to-spitakavor-4cff2358"
+ },
+ {
+  "slug": "verelk-yeranos-7af17332",
+  "name": {
+   "en": "Hiking Mount Yeranos",
+   "hy": "Վերելք Երանոս լեռ",
+   "ru": "Восхождение на гору Еранос"
+  },
+  "start": "2026-11-21T08:00:00+04:00",
+  "end": null,
+  "org": "Aktiv Up",
+  "ig": "aktivup_hiking_club",
+  "place": "SAS",
+  "lat": 40.186403999999996,
+  "lng": 44.522442,
+  "price": 9000,
+  "book": "https://www.instagram.com/p/Dfw9daFgLqg/",
+  "km": 22.0,
+  "gain": null,
+  "summit": null,
+  "diffText": null,
+  "back": null,
+  "meet": null,
+  "desc": "A 22 km hike with a relative elevation gain of 1,300 meters, intended for experienced hikers. The trail starts from the village of Lanjazat, climbs Karmir Sar, continues to the summit of Mount Yeranos with views of the Azat Reservoir, Mount Ararat, and the Geghama Mountains, and returns through the ",
+  "esora": "https://esora.app/en/events/verelk-yeranos-7af17332"
  },
  {
   "slug": "day-tour-to-the-herouni-telescope-ff22f46e",
@@ -425,31 +425,6 @@
   "esora": "https://esora.app/en/events/lake-rapi-4d1dabe1"
  },
  {
-  "slug": "karenisits-nurnus-hrazdani-kirch-kaylarshav-b7f2cae8",
-  "name": {
-   "en": "Hiking from Karenis to Nurnus: Hrazdan Gorge",
-   "hy": "Կարենիսից Նուռնուս․ Հրազդանի կիրճ․ քայլարշավ",
-   "ru": "Поход от Карениса до Нурнуса: Разданское ущелье"
-  },
-  "start": "2026-11-22",
-  "end": null,
-  "org": "Hamshen Tour",
-  "ig": "hamshen_tour",
-  "place": "Yerevan",
-  "lat": null,
-  "lng": null,
-  "price": 7500,
-  "book": "https://hamshen.am/hy/tours/nurnus?utm_source=esora.app&utm_medium=referral",
-  "km": null,
-  "gain": null,
-  "summit": null,
-  "diffText": null,
-  "back": null,
-  "meet": null,
-  "desc": "Registration and inquiries: 093 55 14 85, 091 55 14 85, 041 55 14 85, or Charents St 17, Yerevan.",
-  "esora": "https://esora.app/en/events/karenisits-nurnus-hrazdani-kirch-kaylarshav-b7f2cae8"
- },
- {
   "slug": "karkatar-ler-6a95a88e",
   "name": {
    "en": "Hiking Mount Qharkatar",
@@ -500,6 +475,31 @@
   "esora": "https://esora.app/en/events/kaylarshav-depi-gevorg-marzpetunu-berd-ev-hreshtakneri-dzor-e2ab2af7"
  },
  {
+  "slug": "halloween-rope-jumping-6ced2661",
+  "name": {
+   "en": "Rope Jumping: Dragon's Fly 120m",
+   "hy": "Ռոուփ ջամփինգ Dragon’s Fly-ում",
+   "ru": "Роупджампинг в Dragon’s Fly"
+  },
+  "start": "2026-11-22",
+  "end": null,
+  "org": "Scream of Soul",
+  "ig": "scream_of_soul_team",
+  "place": "Yerevan",
+  "lat": null,
+  "lng": null,
+  "price": 40000,
+  "book": "https://www.instagram.com/p/DcB3CJYtIx6/",
+  "km": 125.0,
+  "gain": null,
+  "summit": null,
+  "diffText": null,
+  "back": null,
+  "meet": null,
+  "desc": "Free-fall rope jumping from a height of 120 meters.",
+  "esora": "https://esora.app/en/events/halloween-rope-jumping-6ced2661"
+ },
+ {
   "slug": "dimats-ler-mount-dimats-d612c13c",
   "name": {
    "en": "Hiking Mount Dimats",
@@ -510,18 +510,18 @@
   "end": null,
   "org": "ArmLand Adventure & Travel",
   "ig": "armland_adventure",
-  "place": "Yerevan",
-  "lat": null,
-  "lng": null,
+  "place": "Republic Square",
+  "lat": 40.1776945,
+  "lng": 44.5126511,
   "price": 9500,
   "book": "https://www.facebook.com/events/1954667708827101/",
   "km": 19.0,
   "gain": 1000.0,
   "summit": 2378.0,
-  "diffText": "moderate",
+  "diffText": "intermediate",
   "back": null,
-  "meet": "Republic Square, start of Vazgen Sargsyan Street, near the Marriott Hotel.",
-  "desc": "Hike to Mount Dimats (2,378 m) in Tavush and visit the Hidden Waterfall at the beginning of the route.",
+  "meet": "Republic Square, at the beginning of Vazgen Sargsyan Street near Marriott Hotel.",
+  "desc": "A hike to the peak of Mount Dimats (2378 m) in the Ijevan mountain range in Tavush, also stopping at Hidden Waterfall.",
   "esora": "https://esora.app/en/events/dimats-ler-mount-dimats-d612c13c"
  },
  {
@@ -577,7 +577,7 @@
  {
   "slug": "mets-parakhadem-9b4f9ed9",
   "name": {
-   "en": "Hiking Mets Parakhadem",
+   "en": "Ascent of Mets Parakhadem",
    "hy": "Վերելք Մեծ Փարախադեմ",
    "ru": "Восхождение на Мец Парахадем"
   },
@@ -585,9 +585,9 @@
   "end": null,
   "org": "Our path",
   "ig": "ourpath.hiking",
-  "place": "Tigranashen",
-  "lat": 39.9139415,
-  "lng": 44.720000399999996,
+  "place": "Mount Mets Parakhadem",
+  "lat": 39.824806699999996,
+  "lng": 44.8620721,
   "price": 8500,
   "book": "https://www.instagram.com/p/De2EOJhiGDm/",
   "km": 14.0,
@@ -595,8 +595,8 @@
   "summit": null,
   "diffText": null,
   "back": null,
-  "meet": "35 Isahakyan Street",
-  "desc": "A hike to Mount Mets Parakhadem in Vayots Dzor, starting near the village of Tigranashen along mountain trails to the summit, with views of Mount Ararat.",
+  "meet": "35 Isahakyan St.",
+  "desc": "Hike to Mets Parakhadem, starting near the village of Tigranashen along mountain trails and paths leading to the summit, with views of Mount Ararat in clear weather.",
   "esora": "https://esora.app/en/events/mets-parakhadem-9b4f9ed9"
  },
  {
@@ -648,6 +648,31 @@
   "meet": null,
   "desc": "A hike to Mantashaberd fortress (also known as Ashot Yerkat fortress), located in the Tavush province. The route starts from Gandzakar village and ends in the Aghstev valley.",
   "esora": "https://esora.app/en/events/mantashaberd-hike-to-mantashaberd-fortress-31dcf7da"
+ },
+ {
+  "slug": "karenisits-nurnus-hrazdani-kirch-kaylarshav-b7f2cae8",
+  "name": {
+   "en": "Hiking: Karenis to Nurnus, Hrazdan Gorge",
+   "hy": "Կարենիսից Նուռնուս․ Հրազդանի կիրճ․ քայլարշավ",
+   "ru": "Поход от Карениса до Нурнуса: Разданское ущелье"
+  },
+  "start": "2026-11-22T09:00:00+04:00",
+  "end": null,
+  "org": "Hamshen Tour",
+  "ig": "hamshen_tour",
+  "place": "Hamshen Tour",
+  "lat": 40.179468899999996,
+  "lng": 44.521760199999996,
+  "price": 7500,
+  "book": "https://hamshen.am/hy/tours/nurnus?utm_source=esora.app&utm_medium=referral",
+  "km": 12.0,
+  "gain": 350.0,
+  "summit": null,
+  "diffText": null,
+  "back": "19:00",
+  "meet": "8 Tumanyan St",
+  "desc": "A light hike in Hrazdan Gorge, Kotayk Province, combining nature and history. The route visits an underground mineral spring (\"ttujur\"), passes through a rock-hewn tunnel with views of giant basalt columns, reaches Karenis Monastery (6th–15th centuries, also known as the Monastery of Apostles Matthe",
+  "esora": "https://esora.app/en/events/karenisits-nurnus-hrazdani-kirch-kaylarshav-b7f2cae8"
  },
  {
   "slug": "gravi-gorge-c78dece6",
@@ -1496,7 +1521,7 @@
   "diffText": null,
   "back": null,
   "meet": null,
-  "desc": "An ascent to the two symbolic peaks of the Armenian Highlands: Sis and Masis.",
+  "desc": "An expedition including ascents of Sis and Masis. The climb is difficult and open only to participants with hiking experience.",
   "esora": "https://esora.app/en/events/verelk-sis-ev-masis-b968bfc4"
  },
  {
