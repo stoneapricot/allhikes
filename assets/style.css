@@ -206,3 +206,11 @@ dialog.mapdlg::backdrop{background:rgba(10,14,12,.55)}
 .contact span{font-family:var(--f-data);font-weight:500;font-size:12.5px;user-select:all}
 .summary{margin:0;color:var(--ink);max-width:64ch;font-size:15px}
 @media (max-width:640px){.club-hero{grid-template-columns:auto minmax(0,1fr)}.logo.lg{width:72px;height:72px}}
+
+/* Telegram sign-ups: "I'm going" */
+.going-row{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin-top:2px}
+.going{border:1.5px solid var(--moss);background:transparent;color:var(--moss);border-radius:999px;padding:6px 13px;font:600 13px var(--f-body);cursor:pointer}
+.going[aria-pressed="true"]{background:var(--moss);color:#fff}
+.gcount{font:500 12.5px var(--f-data);color:var(--muted)}
+#mine{margin-top:22px}
+#mine .daygroup{border-left:3px solid var(--moss);padding-left:10px}

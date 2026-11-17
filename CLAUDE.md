@@ -37,3 +37,22 @@ non-technical, so explain things in plain words.
 
 Check a change: `python scripts/build.py`, `python -m http.server 8767`, open it at phone
 width (430px), and switch through all three languages on the home, clubs and one club page.
+
+## Telegram Mini App
+
+The same site opens inside Telegram (bot @AllHikesArmeniaBot) from the bot's menu button (set in @BotFather to
+`https://yerevent.github.io/allhikes/`). There is no separate app and no server. `app.js` spots
+Telegram by the `#tgWebAppData` it adds to the first URL and remembers that, plus the language and
+light/dark, in sessionStorage. It only loads Telegram's script there. Inside Telegram it uses
+Telegram's colours, shows Telegram's back button on inner pages and the map popup, opens outside
+links in the right app, and gives a small vibration on taps. The normal website is unchanged.
+
+### Sign-ups ("I'm going")
+
+Inside Telegram only, each hike card has an "I'm going" button, and the home page shows
+"My hikes" at the top. It doesn't book a place: people still book with the club, and the app
+tells them so. Sign-ups go to `backend/Code.gs`, an Apps Script in the "AllHikes sign-ups"
+Google Sheet (tab `Signups`). It checks Telegram's signature with the script property
+`BOT_TOKEN` and sends a reminder at 18:00 Yerevan time the day before. Its web app URL goes
+in `API` near the top of `app.js`; while that's empty the button stays hidden. Hikes get a
+stable `id` in `build.py` (Esora slug, else a hash of the link and date).

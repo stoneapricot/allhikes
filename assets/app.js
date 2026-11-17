@@ -77,11 +77,46 @@ const T = {
     ig:"Instagram",tg:"Telegram",wa:"WhatsApp",web:"Сайт",
     foot:"Данные взяты из открытых анонсов клубов, обновлено {date}. Запись всегда напрямую у клуба. Данные карты © участники OpenStreetMap."}
 };
+/* sign-ups inside the Telegram mini app */
+Object.assign(T.en, {imGoing:"I’m going", going:"You’re going", nGoing:n => `${n} going`, mine:"My hikes",
+  mineSub:"Telegram will remind you the day before.", goNote:"Saved. This doesn’t book a place: book with the club too.",
+  goErr:"Couldn’t save. Check your connection and try again."});
+Object.assign(T.ru, {imGoing:"Я иду", going:"Вы идёте", nGoing:n => `идут: ${n}`, mine:"Мои походы",
+  mineSub:"Накануне Telegram напомнит о походе.", goNote:"Сохранено. Это не бронь: запишитесь и у клуба.",
+  goErr:"Не удалось сохранить. Проверьте интернет и попробуйте ещё раз."});
+Object.assign(T.hy, {imGoing:"Գնում եմ", going:"Դուք գնում եք", nGoing:n => `գնում են՝ ${n}`, mine:"Իմ արշավները",
+  mineSub:"Նախօրեին Telegram-ը կհիշեցնի։", goNote:"Պահված է։ Սա ամրագրում չէ. գրանցվեք նաև ակումբում։",
+  goErr:"Չհաջողվեց պահել։ Ստուգեք կապը և փորձեք կրկին։"});
+/* The Apps Script web app (backend/Code.gs) that keeps sign-ups. Empty = sign-ups off. */
+const API = "https://script.google.com/macros/s/AKfycbyAzWvlJpKZ5MP7v5qmRWCLzUIV0IzbBbUIDq78UYQfIGUHtu_-SIglijoIXGhTBGm9/exec";
+
 const LOC = {en:"en-GB",hy:"hy-AM",ru:"ru-RU"};
 const TODAY = new Date().toLocaleDateString("en-CA", {timeZone:"Asia/Yerevan"});
 
+/* ---------- Telegram Mini App ----------
+   The same pages open inside Telegram from the bot's menu button. Telegram adds
+   #tgWebAppData=… to the first URL; we remember that for the session (the hash is gone
+   after clicking to another page), and only then load Telegram's script. */
+const ss = (k, v) => { try { return v === undefined ? sessionStorage.getItem(k) : sessionStorage.setItem(k, v); } catch(e){ return null; } };
+const HASH = new URLSearchParams(location.hash.slice(1));
+if(HASH.get("tgWebAppData")) ss("ah-tg", "1");
+const IN_TG = ss("ah-tg") === "1";
+function tgLang(){
+  try { return JSON.parse(new URLSearchParams(HASH.get("tgWebAppData")).get("user")).language_code.slice(0,2); } catch(e){ return ""; }
+}
+if(IN_TG){
+  /* Use Telegram's light/dark straight away, before its script arrives, so nothing flashes. */
+  try {
+    const bg = JSON.parse(HASH.get("tgWebAppThemeParams")).bg_color, n = parseInt(bg.slice(1), 16);
+    ss("ah-theme", ((n >> 16) * .299 + (n >> 8 & 255) * .587 + (n & 255) * .114) < 128 ? "dark" : "light");
+  } catch(e){}
+  if(ss("ah-theme")) document.documentElement.dataset.theme = ss("ah-theme");
+  if(tgLang()) ss("ah-tglang", tgLang());
+  document.documentElement.classList.add("tg");
+}
+
 let lang = "en";
-try { lang = localStorage.getItem("allhikes-lang") || (navigator.language || "en").slice(0,2); } catch(e){}
+try { lang = localStorage.getItem("allhikes-lang") || (IN_TG && ss("ah-tglang")) || (navigator.language || "en").slice(0,2); } catch(e){}
 if(!T[lang]) lang = "en";
 const t = k => T[lang][k];
 const esc = s => String(s ?? "").replace(/[&<>"]/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
@@ -112,6 +147,8 @@ const logo = (c, cls = "") => c ? `<img class="logo ${cls}" src="${ROOT}assets/l
 
 const UP = HIKES.filter(h => h.k !== "big" && (h.e || h.d) >= TODAY);
 const BIG = HIKES.filter(h => h.k === "big" && (h.e || h.d) >= TODAY);
+/* sign-up state: shown only inside Telegram, once API is set */
+const GO = {on: IN_TG && !!API, mine: new Set(), counts: {}};
 const isArarat = h => /ararat|masis/i.test(h.n.en);
 const byDate = (a, b) => (a.d + (a.t || "99")).localeCompare(b.d + (b.t || "99"));
 
@@ -133,6 +170,7 @@ function card(h){
       ${meta ? `<div class="meta">${meta}</div>` : ""}
       ${h.m ? `<p class="meet">${t("meet")} ${esc(h.m)}</p>` : ""}
       ${h.ds ? `<details><summary>${t("more")}</summary><p>${esc(h.ds)}</p></details>` : ""}
+      ${GO.on ? `<div class="going-row"><button type="button" class="going" data-go="${esc(h.id)}" aria-pressed="false">+ ${t("imGoing")}</button><span class="gcount" data-gc="${esc(h.id)}"></span></div>` : ""}
       ${h.loc ? `<button type="button" class="mapbtn" data-map="${HIKES.indexOf(h)}">◉ ${t("onMap")} · ${esc(h.loc[2])}</button>` : ""}
       ${book.replace('class="book"', 'class="book book-m"')}
     </div>
@@ -197,6 +235,7 @@ function openHikeMap(h){
   if(!d){
     d = document.createElement("dialog"); d.id = "mapdlg"; d.className = "mapdlg";
     d.addEventListener("click", e => { if(e.target === d || e.target.closest(".x")) d.close(); });
+    d.addEventListener("close", tgBackSync);
     document.body.appendChild(d);
   }
   const trs = (h.tr || []).map(id => TRAILS[id]).filter(Boolean);
@@ -204,7 +243,7 @@ function openHikeMap(h){
     <div class="map" id="dlgmap"></div>
     <div class="bd">${trs.length ? `<b>${t("near")}</b><ul>${trs.map((tr, i) => `<li><a href="https://www.openstreetmap.org/relation/${h.tr[i]}" target="_blank" rel="noopener">${esc(tr.name || "Trail")}</a> · ${t("trailKm")(tr.km)}</li>`).join("")}</ul>` : `<p class="muted">${t("noTrail")}</p>`}
     <p class="muted">${t("approx")}</p></div>`;
-  d.showModal();
+  d.showModal(); tgBackSync();
   drawMap($("dlgmap"), [h], {fitTrails: true, maxZoom: 13, wheel: true});
 }
 
@@ -255,6 +294,7 @@ function homeShell(){
         <input class="chip" id="f-q" type="search" autocomplete="off" placeholder="${t("q")}" value="${esc(S.q)}">
       </div></div></nav>
     <main><div class="wrap">
+      <section id="mine" hidden></section>
       <section id="up">
         <div class="sec-head"><h2>${t("novTitle")}</h2><p id="count"></p></div>
         <div class="viewbar">
@@ -286,6 +326,7 @@ function renderList(){
     drawMap($("bigmap"), rows, {maxZoom: 11});
     return;
   }
+  setTimeout(paintGoing);
   $("list").innerHTML = rows.length ? dayGroups(rows) : `<div class="empty daygroup">${t("none")}<br><button type="button" class="chip" id="clear">${t("clear")}</button></div>`;
 }
 function renderHomeExtras(){
@@ -366,9 +407,20 @@ function render(){
     const el = $("clubmap");
     if(el) drawMap(el, UP.filter(h => h.cs === B.dataset.club), {maxZoom: 11});
   }
+  paintGoing();
 }
 document.addEventListener("click", e => {
+  /* Inside Telegram, outside links (club Instagram, WhatsApp, booking) open in the proper
+     app or browser instead of replacing the mini app; t.me links stay in Telegram. */
+  const a = TG && e.target.closest("a[href]");
+  if(a && a.origin !== location.origin && /^https?:/.test(a.href)){
+    e.preventDefault();
+    if(/^https:\/\/t\.me\//.test(a.href)) TG.openTelegramLink(a.href); else TG.openLink(a.href);
+    return;
+  }
   const b = e.target.closest("button"); if(!b) return;
+  if(TG && TG.HapticFeedback) try { TG.HapticFeedback.selectionChanged(); } catch(err){}
+  if(b.dataset.go){ goToggle(b.dataset.go); return; }
   if(b.dataset.l){ lang = b.dataset.l; try { localStorage.setItem("allhikes-lang", lang); } catch(err){} render(); return; }
   if(b.dataset.map){ openHikeMap(HIKES[+b.dataset.map]); return; }
   if(b.dataset.v){ S.view = b.dataset.v; document.querySelectorAll("[data-v]").forEach(x => x.setAttribute("aria-pressed", x === b)); renderList(); return; }
@@ -413,6 +465,84 @@ function drawTopo(){
 }
 let rt; addEventListener("resize", () => { clearTimeout(rt); rt = setTimeout(drawTopo, 150); });
 matchMedia("(prefers-color-scheme: dark)").addEventListener("change", drawTopo);
+
+/* ---------- Telegram setup (only inside Telegram) ---------- */
+let TG = null;
+function tgBackSync(){
+  if(!TG) return;
+  const dlg = $("mapdlg");
+  (PAGE !== "home" || (dlg && dlg.open)) ? TG.BackButton.show() : TG.BackButton.hide();
+}
+async function api(body){
+  const res = await fetch(API, {method: "POST", body: JSON.stringify({...body, initData: TG.initData})});
+  const j = await res.json();
+  if(!j.ok) throw new Error(j.error || "failed");
+  return j;
+}
+function gotGoing(j){ GO.mine = new Set(j.mine); GO.counts = j.counts || {}; paintGoing(); }
+function paintGoing(){
+  if(!GO.on) return;
+  const box = $("mine");   // "My hikes" at the top of the home page
+  if(box){
+    const rows = UP.filter(h => GO.mine.has(h.id)).sort(byDate);
+    box.hidden = !rows.length;
+    box.innerHTML = rows.length ? `<div class="sec-head"><h2>${t("mine")}</h2><p>${t("mineSub")}</p></div>${dayGroups(rows)}` : "";
+  }
+  document.querySelectorAll("[data-go]").forEach(b => {
+    const on = GO.mine.has(b.dataset.go);
+    b.setAttribute("aria-pressed", on); b.textContent = (on ? "✓ " : "+ ") + t(on ? "going" : "imGoing");
+  });
+  document.querySelectorAll("[data-gc]").forEach(s => { const n = GO.counts[s.dataset.gc] || 0; s.textContent = n ? t("nGoing")(n) : ""; });
+}
+let goBusy = false;
+async function goToggle(id){
+  if(!TG || !TG.initData || goBusy) return;
+  const h = HIKES.find(x => x.id === id); if(!h) return;
+  const on = !GO.mine.has(id), before = {mine: [...GO.mine], counts: {...GO.counts}};
+  on ? GO.mine.add(id) : GO.mine.delete(id);
+  GO.counts[id] = Math.max(0, (GO.counts[id] || 0) + (on ? 1 : -1));
+  paintGoing(); goBusy = true;
+  try {
+    gotGoing(await api({action: "going", on, hike: {id, name: name(h), date: h.d, club: h.o}}));
+    if(!on) return;
+    try { TG.HapticFeedback.notificationOccurred("success"); } catch(e){}
+    const note = () => TG.showPopup({message: t("goNote"), buttons: [{id: "book", type: "default", text: t("book")}, {type: "close"}]},
+      b => { if(b === "book") TG.openLink(h.b); });
+    const u = TG.initDataUnsafe && TG.initDataUnsafe.user;
+    /* the bot may only send reminders once the person allows it */
+    if(u && !u.allows_write_to_pm && TG.isVersionAtLeast("6.9")) TG.requestWriteAccess(() => note()); else note();
+  } catch(e){
+    gotGoing(before);
+    TG.showAlert(t("goErr"));
+  } finally { goBusy = false; }
+}
+function tgSetup(){
+  const W = window.Telegram && Telegram.WebApp; if(!W) return;
+  TG = W;
+  W.ready(); W.expand();
+  const ok = v => W.isVersionAtLeast && W.isVersionAtLeast(v);
+  if(ok("7.7")) W.disableVerticalSwipes();   // so dragging a map doesn't close the app
+  const theme = () => {
+    document.documentElement.dataset.theme = W.colorScheme; ss("ah-theme", W.colorScheme);
+    const bg = css("--paper");
+    try { if(ok("6.9")){ W.setHeaderColor(bg); W.setBackgroundColor(bg); } if(ok("7.10")) W.setBottomBarColor(bg); } catch(e){}
+    drawTopo();
+  };
+  theme(); W.onEvent("themeChanged", theme);
+  W.BackButton.onClick(() => {
+    const dlg = $("mapdlg");
+    if(dlg && dlg.open) dlg.close();
+    else if(history.length > 1) history.back();
+    else location.href = ROOT;
+  });
+  tgBackSync();
+  if(GO.on && W.initData) api({action: "me"}).then(gotGoing).catch(() => {});
+}
+if(IN_TG){
+  const s = document.createElement("script");
+  s.src = "https://telegram.org/js/telegram-web-app.js?59";
+  s.onload = tgSetup; document.head.appendChild(s);
+}
 
 render();
 })();
