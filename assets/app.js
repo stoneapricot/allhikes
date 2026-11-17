@@ -1,5 +1,5 @@
 /* AllHikes: one script for every page.
-   Each page's <body> says which view it is: data-page="home" | "clubs" | "club",
+   Each page's <body> says which view it is: data-page="home" | "clubs" | "club" | "me",
    data-club="<slug>" on a club page, and data-root (path back to the site root).
    Data comes from assets/data.js (window.AH), made by scripts/build.py. */
 (() => {
@@ -12,7 +12,7 @@ const T = {
     sHikes:"upcoming hikes",sClubs:"clubs",sFrom:"cheapest day hike",
     all:"All days",today:"Today",tomorrow:"Tomorrow",easy:"Easy",moderate:"Moderate",hard:"Hard",cheap:"Under 10,000 ֏",kids:"With kids",
     allClubs:"All clubs",q:"Mountain, gorge, monastery…",novTitle:"Upcoming hikes",
-    count:n=>`${n} hikes`,legendEst:"~ means we estimated the level from distance and climb.",
+    count:n=>n === 1 ? "1 hike" : `${n} hikes`,legendEst:"~ means we estimated the level from distance and climb.",
     tbc:"Time TBC",back:"back",summit:"summit",meet:"Meet:",more:"About this hike",book:"Book with club",onReq:"Price on request",
     kKids:"Kids",kRun:"Trail run",kAdv:"Adventure",kTrip:"Day trip",days:n=>`${n} days`,
     none:"No hikes match these filters.",clear:"Clear filters",
@@ -77,16 +77,38 @@ const T = {
     ig:"Instagram",tg:"Telegram",wa:"WhatsApp",web:"Сайт",
     foot:"Данные взяты из открытых анонсов клубов, обновлено {date}. Запись всегда напрямую у клуба. Данные карты © участники OpenStreetMap."}
 };
-/* sign-ups inside the Telegram mini app */
+/* sign-ups, My hikes and club contact (the "going" parts work inside the Telegram mini app) */
 Object.assign(T.en, {imGoing:"I’m going", going:"You’re going", nGoing:n => `${n} going`, mine:"My hikes",
-  mineSub:"Telegram will remind you the day before.", goNote:"Saved. This doesn’t book a place: book with the club too.",
-  goErr:"Couldn’t save. Check your connection and try again."});
+  goNote:"Saved to My hikes. This doesn’t book your place yet: message the club to book, then mark it “Booked” in My hikes.",
+  goErr:"Couldn’t save. Check your connection and try again.",
+  cPerson:"Message the club", cGroup:"Club’s Telegram chat", cIg:"Message on Instagram",
+  meNote:"Your Telegram account is your AllHikes account: no sign-up, no password. Your hikes are saved with us, so they’re here on any phone.",
+  meUp:"Coming up", mePast:"Past hikes", meNone:"You haven’t picked any hikes yet.", meBrowse:"Browse hikes",
+  booked:"Booked", notBooked:"Not booked yet", iBooked:"I’ve booked", notGoing:"Not going",
+  bookHint:"Message the club to book your place, then tap “I’ve booked”.",
+  meTg:"My hikes lives in the AllHikes Telegram app. Open it there to sign up for hikes and keep track of them.", openTg:"Open in Telegram",
+  loading:"Loading…", unknownUser:"Telegram user"});
 Object.assign(T.ru, {imGoing:"Я иду", going:"Вы идёте", nGoing:n => `идут: ${n}`, mine:"Мои походы",
-  mineSub:"Накануне Telegram напомнит о походе.", goNote:"Сохранено. Это не бронь: запишитесь и у клуба.",
-  goErr:"Не удалось сохранить. Проверьте интернет и попробуйте ещё раз."});
+  goNote:"Добавлено в «Мои походы». Это ещё не бронь: напишите клубу, чтобы записаться, а потом отметьте «Записан(а)» в «Моих походах».",
+  goErr:"Не удалось сохранить. Проверьте интернет и попробуйте ещё раз.",
+  cPerson:"Написать клубу", cGroup:"Чат клуба в Telegram", cIg:"Написать в Instagram",
+  meNote:"Ваш аккаунт Telegram и есть ваш аккаунт AllHikes: без регистрации и паролей. Походы хранятся у нас, поэтому видны на любом телефоне.",
+  meUp:"Скоро", mePast:"Прошедшие походы", meNone:"Вы ещё не выбрали ни одного похода.", meBrowse:"Смотреть походы",
+  booked:"Записан(а)", notBooked:"Ещё не записан(а)", iBooked:"Я записался(-ась)", notGoing:"Не пойду",
+  bookHint:"Напишите клубу, чтобы записаться, затем нажмите «Я записался(-ась)».",
+  meTg:"«Мои походы» есть в Telegram-приложении AllHikes. Откройте его, чтобы записываться на походы и следить за ними.", openTg:"Открыть в Telegram",
+  loading:"Загрузка…", unknownUser:"Пользователь Telegram"});
 Object.assign(T.hy, {imGoing:"Գնում եմ", going:"Դուք գնում եք", nGoing:n => `գնում են՝ ${n}`, mine:"Իմ արշավները",
-  mineSub:"Նախօրեին Telegram-ը կհիշեցնի։", goNote:"Պահված է։ Սա ամրագրում չէ. գրանցվեք նաև ակումբում։",
-  goErr:"Չհաջողվեց պահել։ Ստուգեք կապը և փորձեք կրկին։"});
+  goNote:"Ավելացվեց «Իմ արշավները»-ում։ Սա դեռ ամրագրում չէ. գրեք ակումբին տեղ ամրագրելու համար, հետո նշեք «Ամրագրված է»։",
+  goErr:"Չհաջողվեց պահել։ Ստուգեք կապը և փորձեք կրկին։",
+  cPerson:"Գրել ակումբին", cGroup:"Ակումբի Telegram չատը", cIg:"Գրել Instagram-ում",
+  meNote:"Ձեր Telegram հաշիվը նաև ձեր AllHikes հաշիվն է՝ առանց գրանցման և գաղտնաբառի։ Արշավները պահվում են մեզ մոտ, ուստի երևում են ցանկացած հեռախոսում։",
+  meUp:"Առաջիկա", mePast:"Անցած արշավներ", meNone:"Դուք դեռ արշավ չեք ընտրել։", meBrowse:"Դիտել արշավները",
+  booked:"Ամրագրված է", notBooked:"Դեռ ամրագրված չէ", iBooked:"Ամրագրել եմ", notGoing:"Չեմ գնում",
+  bookHint:"Գրեք ակումբին տեղ ամրագրելու համար, հետո սեղմեք «Ամրագրել եմ»։",
+  meTg:"«Իմ արշավները» AllHikes-ի Telegram հավելվածում է։ Բացեք այնտեղ՝ արշավներին գրանցվելու համար։", openTg:"Բացել Telegram-ում",
+  loading:"Բեռնվում է…", unknownUser:"Telegram օգտատեր"});
+const BOT = "https://t.me/AllHikesArmeniaBot";
 /* The Apps Script web app (backend/Code.gs) that keeps sign-ups. Empty = sign-ups off. */
 const API = "https://script.google.com/macros/s/AKfycbyAzWvlJpKZ5MP7v5qmRWCLzUIV0IzbBbUIDq78UYQfIGUHtu_-SIglijoIXGhTBGm9/exec";
 
@@ -148,7 +170,14 @@ const logo = (c, cls = "") => c ? `<img class="logo ${cls}" src="${ROOT}assets/l
 const UP = HIKES.filter(h => h.k !== "big" && (h.e || h.d) >= TODAY);
 const BIG = HIKES.filter(h => h.k === "big" && (h.e || h.d) >= TODAY);
 /* sign-up state: shown only inside Telegram, once API is set */
-const GO = {on: IN_TG && !!API, mine: new Set(), counts: {}};
+const GO = {on: IN_TG && !!API, mine: new Map(), counts: {}, loaded: false};
+/* how to reach a club: a Telegram chat if it has one (never a channel), else Instagram DMs */
+function contact(c){
+  if(!c) return null;
+  if(c.chat){ const k = c.chatKind === "person" ? "cPerson" : "cGroup"; return {href: "https://" + c.chat, label: "✈ " + t(k), text: t(k)}; }
+  return {href: "https://ig.me/m/" + c.ig, label: "✉ " + t("cIg"), text: t("cIg")};
+}
+const contactBtn = c => { const k = contact(c); return k ? `<a class="contact" href="${esc(k.href)}" target="_blank" rel="noopener">${k.label}</a>` : ""; };
 const isArarat = h => /ararat|masis/i.test(h.n.en);
 const byDate = (a, b) => (a.d + (a.t || "99")).localeCompare(b.d + (b.t || "99"));
 
@@ -170,8 +199,8 @@ function card(h){
       ${meta ? `<div class="meta">${meta}</div>` : ""}
       ${h.m ? `<p class="meet">${t("meet")} ${esc(h.m)}</p>` : ""}
       ${h.ds ? `<details><summary>${t("more")}</summary><p>${esc(h.ds)}</p></details>` : ""}
-      ${GO.on ? `<div class="going-row"><button type="button" class="going" data-go="${esc(h.id)}" aria-pressed="false">+ ${t("imGoing")}</button><span class="gcount" data-gc="${esc(h.id)}"></span></div>` : ""}
-      ${h.loc ? `<button type="button" class="mapbtn" data-map="${HIKES.indexOf(h)}">◉ ${t("onMap")} · ${esc(h.loc[2])}</button>` : ""}
+      ${API ? `<div class="going-row">${GO.on ? `<button type="button" class="going" data-go="${esc(h.id)}" aria-pressed="false">+ ${t("imGoing")}</button>` : ""}<span class="gcount" data-gc="${esc(h.id)}"></span></div>` : ""}
+      <div class="acts">${h.loc ? `<button type="button" class="mapbtn" data-map="${HIKES.indexOf(h)}">◉ ${t("onMap")} · ${esc(h.loc[2])}</button>` : ""}${contactBtn(c)}</div>
       ${book.replace('class="book"', 'class="book book-m"')}
     </div>
     <div class="buy">${price(h)}${book}</div>
@@ -253,7 +282,7 @@ function navbar(current){
     <a class="mini-sign" href="${ROOT}">AllHikes</a>
     <div class="nav-links">
       <a href="${ROOT}" ${current === "home" ? 'aria-current="page"' : ""}>${t("navHikes")}</a>
-      <a href="${ROOT}clubs/" ${current !== "home" ? 'aria-current="page"' : ""}>${t("navClubs")}</a>
+      <a href="${ROOT}clubs/" ${current === "clubs" || current === "club" ? 'aria-current="page"' : ""}>${t("navClubs")}</a>
       ${langs()}
     </div></div></nav>`;
 }
@@ -294,7 +323,6 @@ function homeShell(){
         <input class="chip" id="f-q" type="search" autocomplete="off" placeholder="${t("q")}" value="${esc(S.q)}">
       </div></div></nav>
     <main><div class="wrap">
-      <section id="mine" hidden></section>
       <section id="up">
         <div class="sec-head"><h2>${t("novTitle")}</h2><p id="count"></p></div>
         <div class="viewbar">
@@ -397,16 +425,60 @@ function clubShell(){
   </div></main>${footer()}`;
 }
 
+/* ---------- MY HIKES (Telegram account = AllHikes account) ---------- */
+function tabbar(){
+  const n = [...GO.mine.values()].filter(m => m.date >= TODAY).length;
+  const tab = (href, page, ico, label) => `<a href="${href}" ${PAGE === page || (page === "clubs" && PAGE === "club") ? 'aria-current="page"' : ""}><span class="ico">${ico}</span>${label}${page === "me" && n ? `<b class="badge">${n}</b>` : ""}</a>`;
+  return `<nav class="tabbar" id="tabbar" aria-label="App">${tab(ROOT, "home", "⛰", t("navHikes"))}${tab(ROOT + "me/", "me", "✓", t("mine"))}${tab(ROOT + "clubs/", "clubs", "◎", t("navClubs"))}</nav>`;
+}
+function meShell(){
+  document.title = t("mine") + " · AllHikes";
+  return navbar("me") + `<main><div class="wrap"><div id="me">${IN_TG ? `<p class="muted">${t("loading")}</p>` :
+    `<div class="me-empty"><p>${t("meTg")}</p><a class="book" href="${BOT}" target="_blank" rel="noopener">${t("openTg")} ↗</a></div>`}</div></div></main>`;
+}
+const clubByName = n => CLUBS.find(c => c.name === n);
+function meItem(m){
+  const h = HIKES.find(x => x.id === m.id);
+  const c = h ? clubBySlug[h.cs] : clubByName(m.club);
+  const title = h ? name(h) : m.name, past = m.date < TODAY;
+  const n = GO.counts[m.id] || 0;
+  return `<article class="me-hike${past ? " past" : ""}">
+    <div class="mh-top"><span class="mh-date">${fmtDate(m.date, {weekday:"short", day:"numeric", month:"short"})}${h && h.t ? " · " + h.t : ""}</span>
+      ${past ? "" : `<span class="status ${m.booked ? "st-ok" : "st-no"}">${m.booked ? "✓ " + t("booked") : t("notBooked")}</span>`}</div>
+    <h4>${esc(title)}</h4>
+    <p class="by">${c ? logo(c, "sm") + `<a href="${clubUrl(c)}">${esc(c.name)}</a>` : esc(m.club)}${h ? " · " + priceText(h) : ""}${!past && n ? ` · <span class="gcount">${t("nGoing")(n)}</span>` : ""}</p>
+    ${past ? "" : `${m.booked ? "" : `<p class="hint">${t("bookHint")}</p>`}
+    <div class="acts">${contactBtn(c)}<button type="button" class="going" data-booked="${esc(m.id)}" aria-pressed="${!!m.booked}">${m.booked ? "✓ " : ""}${t("iBooked")}</button>
+      <button type="button" class="linkbtn" data-go="${esc(m.id)}">${t("notGoing")}</button></div>`}
+  </article>`;
+}
+function renderMe(){
+  const box = $("me"); if(!box || !IN_TG || !GO.loaded) return;
+  const u = (TG && TG.initDataUnsafe && TG.initDataUnsafe.user) || {};
+  const full = [u.first_name, u.last_name].filter(Boolean).join(" ") || t("unknownUser");
+  const all = [...GO.mine.values()];
+  const up = all.filter(m => m.date >= TODAY).sort((a, b) => a.date.localeCompare(b.date));
+  const past = all.filter(m => m.date < TODAY).sort((a, b) => b.date.localeCompare(a.date));
+  box.innerHTML = `<header class="me-head">${u.photo_url ? `<img class="avatar" src="${esc(u.photo_url)}" alt="" width="56" height="56">` : `<span class="avatar">${esc(full[0])}</span>`}
+      <div><h1>${esc(full)}</h1>${u.username ? `<p class="muted">@${esc(u.username)}</p>` : ""}</div></header>
+    <p class="me-note">${t("meNote")}</p>
+    <section><div class="sec-head"><h2>${t("meUp")}</h2><p>${t("count")(up.length)}</p></div>
+      ${up.length ? up.map(meItem).join("") : `<div class="me-empty"><p>${t("meNone")}</p><a class="book" href="${ROOT}">${t("meBrowse")}</a></div>`}</section>
+    ${past.length ? `<section><div class="sec-head"><h2>${t("mePast")}</h2></div>${past.map(meItem).join("")}</section>` : ""}`;
+}
+
 /* ---------- render + events ---------- */
 function render(){
   document.documentElement.lang = lang;
   if(PAGE === "home"){ B.innerHTML = homeShell(); renderDays(); renderList(); renderHomeExtras(); drawTopo(); }
   else if(PAGE === "clubs"){ B.innerHTML = clubsShell(); renderClubGrid(); }
+  else if(PAGE === "me"){ B.innerHTML = meShell(); }
   else if(PAGE === "club"){
     B.innerHTML = clubShell();
     const el = $("clubmap");
     if(el) drawMap(el, UP.filter(h => h.cs === B.dataset.club), {maxZoom: 11});
   }
+  if(IN_TG) B.insertAdjacentHTML("beforeend", tabbar());
   paintGoing();
 }
 document.addEventListener("click", e => {
@@ -421,6 +493,7 @@ document.addEventListener("click", e => {
   const b = e.target.closest("button"); if(!b) return;
   if(TG && TG.HapticFeedback) try { TG.HapticFeedback.selectionChanged(); } catch(err){}
   if(b.dataset.go){ goToggle(b.dataset.go); return; }
+  if(b.dataset.booked){ bookedToggle(b.dataset.booked); return; }
   if(b.dataset.l){ lang = b.dataset.l; try { localStorage.setItem("allhikes-lang", lang); } catch(err){} render(); return; }
   if(b.dataset.map){ openHikeMap(HIKES[+b.dataset.map]); return; }
   if(b.dataset.v){ S.view = b.dataset.v; document.querySelectorAll("[data-v]").forEach(x => x.setAttribute("aria-pressed", x === b)); renderList(); return; }
@@ -471,7 +544,7 @@ let TG = null;
 function tgBackSync(){
   if(!TG) return;
   const dlg = $("mapdlg");
-  (PAGE !== "home" || (dlg && dlg.open)) ? TG.BackButton.show() : TG.BackButton.hide();
+  (PAGE === "club" || (dlg && dlg.open)) ? TG.BackButton.show() : TG.BackButton.hide();
 }
 async function api(body){
   const res = await fetch(API, {method: "POST", body: JSON.stringify({...body, initData: TG.initData})});
@@ -479,35 +552,38 @@ async function api(body){
   if(!j.ok) throw new Error(j.error || "failed");
   return j;
 }
-function gotGoing(j){ GO.mine = new Set(j.mine); GO.counts = j.counts || {}; paintGoing(); }
+/* Accepts both the old reply (a list of ids) and the new one (objects with booked). */
+function gotGoing(j){
+  GO.mine = new Map((j.mine || []).map(m => typeof m === "string" ? [m, {id: m, date: (HIKES.find(h => h.id === m) || {}).d || "", booked: false}] : [m.id, m]));
+  GO.counts = j.counts || {}; GO.loaded = true; paintGoing();
+}
 function paintGoing(){
-  if(!GO.on) return;
-  const box = $("mine");   // "My hikes" at the top of the home page
-  if(box){
-    const rows = UP.filter(h => GO.mine.has(h.id)).sort(byDate);
-    box.hidden = !rows.length;
-    box.innerHTML = rows.length ? `<div class="sec-head"><h2>${t("mine")}</h2><p>${t("mineSub")}</p></div>${dayGroups(rows)}` : "";
-  }
-  document.querySelectorAll("[data-go]").forEach(b => {
+  document.querySelectorAll("[data-go]:not(.linkbtn)").forEach(b => {
     const on = GO.mine.has(b.dataset.go);
     b.setAttribute("aria-pressed", on); b.textContent = (on ? "✓ " : "+ ") + t(on ? "going" : "imGoing");
   });
   document.querySelectorAll("[data-gc]").forEach(s => { const n = GO.counts[s.dataset.gc] || 0; s.textContent = n ? t("nGoing")(n) : ""; });
+  renderMe();
+  const tb = $("tabbar"); if(tb) tb.outerHTML = tabbar();
 }
+const openContact = href => /^https:\/\/t\.me\//.test(href) ? TG.openTelegramLink(href) : TG.openLink(href);
 let goBusy = false;
 async function goToggle(id){
   if(!TG || !TG.initData || goBusy) return;
-  const h = HIKES.find(x => x.id === id); if(!h) return;
-  const on = !GO.mine.has(id), before = {mine: [...GO.mine], counts: {...GO.counts}};
-  on ? GO.mine.add(id) : GO.mine.delete(id);
+  const h = HIKES.find(x => x.id === id), m = GO.mine.get(id);
+  if(!h && !m) return;
+  const on = !GO.mine.has(id), before = {mine: [...GO.mine.values()], counts: {...GO.counts}};
+  const hike = h ? {id, name: name(h), date: h.d, club: h.o} : {id, name: m.name, date: m.date, club: m.club};
+  if(on) GO.mine.set(id, {...hike, booked: false}); else GO.mine.delete(id);
   GO.counts[id] = Math.max(0, (GO.counts[id] || 0) + (on ? 1 : -1));
   paintGoing(); goBusy = true;
   try {
-    gotGoing(await api({action: "going", on, hike: {id, name: name(h), date: h.d, club: h.o}}));
+    gotGoing(await api({action: "going", on, hike}));
     if(!on) return;
     try { TG.HapticFeedback.notificationOccurred("success"); } catch(e){}
-    const note = () => TG.showPopup({message: t("goNote"), buttons: [{id: "book", type: "default", text: t("book")}, {type: "close"}]},
-      b => { if(b === "book") TG.openLink(h.b); });
+    const k = contact(h ? clubBySlug[h.cs] : clubByName(hike.club));
+    const note = () => TG.showPopup({message: t("goNote"), buttons: (k ? [{id: "contact", type: "default", text: k.text}] : []).concat([{type: "close"}])},
+      b => { if(b === "contact") openContact(k.href); });
     const u = TG.initDataUnsafe && TG.initDataUnsafe.user;
     /* the bot may only send reminders once the person allows it */
     if(u && !u.allows_write_to_pm && TG.isVersionAtLeast("6.9")) TG.requestWriteAccess(() => note()); else note();
@@ -515,6 +591,26 @@ async function goToggle(id){
     gotGoing(before);
     TG.showAlert(t("goErr"));
   } finally { goBusy = false; }
+}
+async function bookedToggle(id){
+  const m = GO.mine.get(id); if(!TG || !m || goBusy) return;
+  const before = {mine: [...GO.mine.values()].map(x => ({...x})), counts: {...GO.counts}};
+  m.booked = !m.booked; paintGoing(); goBusy = true;
+  try {
+    gotGoing(await api({action: "booked", on: m.booked, hike: {id}}));
+    if(GO.mine.get(id) && GO.mine.get(id).booked) try { TG.HapticFeedback.notificationOccurred("success"); } catch(e){}
+  } catch(e){ gotGoing(before); TG.showAlert(t("goErr")); }
+  finally { goBusy = false; }
+}
+/* on the plain website: just how many people are going, cached for 5 minutes */
+async function loadCounts(){
+  if(!API || IN_TG) return;
+  try {
+    const c = JSON.parse(ss("ah-counts") || "null");
+    if(c && Date.now() - c.at < 3e5){ GO.counts = c.counts; paintGoing(); return; }
+    const j = await (await fetch(API)).json();
+    if(j.ok){ GO.counts = j.counts; ss("ah-counts", JSON.stringify({at: Date.now(), counts: j.counts})); paintGoing(); }
+  } catch(e){}
 }
 function tgSetup(){
   const W = window.Telegram && Telegram.WebApp; if(!W) return;
@@ -545,4 +641,5 @@ if(IN_TG){
 }
 
 render();
+loadCounts();
 })();

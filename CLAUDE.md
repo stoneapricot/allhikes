@@ -56,3 +56,19 @@ Google Sheet (tab `Signups`). It checks Telegram's signature with the script pro
 `BOT_TOKEN` and sends a reminder at 18:00 Yerevan time the day before. Its web app URL goes
 in `API` near the top of `app.js`; while that's empty the button stays hidden. Hikes get a
 stable `id` in `build.py` (Esora slug, else a hash of the link and date).
+
+### Club contact, My hikes, booking status
+
+- Hike cards show one contact button per club: its Telegram chat if it has one (a person's
+  account first, then a group), else Instagram DMs (`ig.me/m/<handle>`). Channels are never used
+  because people can't write there. `scripts/check_telegram.py` sorts the links (it saves
+  `telegram_kinds` and `chat` in `data/clubs.json`); run it after changing Telegram links.
+- `outreach/club-contacts.xlsx` lists every club's contacts and which button it gets:
+  `python scripts/contacts_sheet.py` (needs openpyxl).
+- `me/` is the My hikes page. Inside Telegram there's a bottom tab bar (Hikes, My hikes, Clubs).
+  The Telegram account is the AllHikes account; the backend keeps a "Users" tab.
+- Booking status is set by the person ("I've booked") and saved in the sheet's `booked` column.
+  Reminders say "have a great hike" when booked, or "message the club" when not.
+- The plain website shows "N going" (public counts from the backend's GET) but no buttons.
+- After changing `backend/Code.gs`, Anna pastes it into Apps Script and redeploys the SAME
+  deployment (Manage deployments → edit → New version) so the URL in `API` stays the same.

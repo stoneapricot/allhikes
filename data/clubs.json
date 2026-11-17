@@ -19,7 +19,12 @@
   "web": "",
   "active": true,
   "esora_slug": "110-places",
-  "about": "Armenia-based guided hiking club that runs regular day and multi-day treks to mountains, lakes, and historic sites across Armenia and beyond. Emphasizes scenic nature, varied difficulty levels, and a friendly, community-oriented group experience."
+  "about": "Armenia-based guided hiking club that runs regular day and multi-day treks to mountains, lakes, and historic sites across Armenia and beyond. Emphasizes scenic nature, varied difficulty levels, and a friendly, community-oriented group experience.",
+  "telegram_kinds": {
+   "t.me/places110110": "channel",
+   "t.me/hikingclub110_places": "channel"
+  },
+  "chat": ""
  },
  {
   "ig": "armenian_geographic",
@@ -37,7 +42,9 @@
   "web": "https://www.armgeo.am/",
   "active": true,
   "esora_slug": "armenian-geographic",
-  "about": "Armenia-based hiking and trekking operator running day hikes, multi-day treks and international mountaineering expeditions (Ararat, Kilimanjaro, Elbrus, Everest Base Camp, Machu Picchu, etc.). Combines scenic nature and cultural site visits with guided, safety-focused outdoor experiences for tourists and local hikers."
+  "about": "Armenia-based hiking and trekking operator running day hikes, multi-day treks and international mountaineering expeditions (Ararat, Kilimanjaro, Elbrus, Everest Base Camp, Machu Picchu, etc.). Combines scenic nature and cultural site visits with guided, safety-focused outdoor experiences for tourists and local hikers.",
+  "telegram_kinds": {},
+  "chat": ""
  },
  {
   "ig": "armland_adventure",
@@ -57,7 +64,11 @@
   "web": "https://armland.am/",
   "active": true,
   "esora_slug": "armland-adventure",
-  "about": "Armland Adventure & Travel is an Armenia-based adventure tour operator offering guided hiking, trekking and cultural expeditions. With over a decade of experience, they run local day hikes and nature treks as well as high‑altitude climbs and international trips (e.g., Machu Picchu, Kilimanjaro), emphasizing a friendly, experienced, community‑focused adventure vibe."
+  "about": "Armland Adventure & Travel is an Armenia-based adventure tour operator offering guided hiking, trekking and cultural expeditions. With over a decade of experience, they run local day hikes and nature treks as well as high‑altitude climbs and international trips (e.g., Machu Picchu, Kilimanjaro), emphasizing a friendly, experienced, community‑focused adventure vibe.",
+  "telegram_kinds": {
+   "t.me/armland": "channel"
+  },
+  "chat": ""
  },
  {
   "ig": "aktivup_hiking_club",
@@ -75,7 +86,9 @@
   "web": "",
   "active": true,
   "esora_slug": "aktivup-hiking-club",
-  "about": "Armenia-based hiking and adventure organizer led by Teresa Hovhannisian, offering weekly guided hikes, day trips, and overnight camping across scenic routes (Khustup, Tavush, Kalavan, etc.). Friendly, beginner-accessible group outings focused on outdoor exploration, community, and experiential nature immersion."
+  "about": "Armenia-based hiking and adventure organizer led by Teresa Hovhannisian, offering weekly guided hikes, day trips, and overnight camping across scenic routes (Khustup, Tavush, Kalavan, etc.). Friendly, beginner-accessible group outings focused on outdoor exploration, community, and experiential nature immersion.",
+  "telegram_kinds": {},
+  "chat": ""
  },
  {
   "ig": "tour_imagine",
@@ -93,7 +106,11 @@
   "web": "",
   "active": true,
   "esora_slug": "tour-imagine",
-  "about": "Armenia-based tour operator offering group and private day trips, transfers and turnkey events — from photo tours, wine tastings and culinary walks to hikes, jeep safaris and cultural city tours led by local guides. Posts highlight immersive, small-group experiences that showcase Armenia’s landscapes, history and food & wine traditions."
+  "about": "Armenia-based tour operator offering group and private day trips, transfers and turnkey events — from photo tours, wine tastings and culinary walks to hikes, jeep safaris and cultural city tours led by local guides. Posts highlight immersive, small-group experiences that showcase Armenia’s landscapes, history and food & wine traditions.",
+  "telegram_kinds": {
+   "t.me/IMAGINE_TOUR": "channel"
+  },
+  "chat": ""
  },
  {
   "ig": "werelk_hiking_club",
@@ -111,7 +128,11 @@
   "web": "https://www.linkedin.com/company/werelk-hiking-club/",
   "active": true,
   "esora_slug": "werelk-hiking-club",
-  "about": "An Armenian hiking club that organizes guided day hikes, multi-kilometer treks, campfire nights and nature cleanups across Armenia. Friendly, beginner-accessible trips with provided transport and guides — community-driven outdoor experiences."
+  "about": "An Armenian hiking club that organizes guided day hikes, multi-kilometer treks, campfire nights and nature cleanups across Armenia. Friendly, beginner-accessible trips with provided transport and guides — community-driven outdoor experiences.",
+  "telegram_kinds": {
+   "t.me/saraharvacnerov": "channel"
+  },
+  "chat": ""
  },
  {
   "ig": "trichq_hiking_club_",
@@ -129,7 +150,11 @@
   "web": "",
   "active": true,
   "esora_slug": "trichq-hiking-club",
-  "about": "Armenian hiking club that organizes guided mountain hikes and training courses across Armenia, including seasonal and winter ascents. Community-driven outings emphasize outdoor adventure, practical skills, and guide certification opportunities."
+  "about": "Armenian hiking club that organizes guided mountain hikes and training courses across Armenia, including seasonal and winter ascents. Community-driven outings emphasize outdoor adventure, practical skills, and guide certification opportunities.",
+  "telegram_kinds": {
+   "t.me/trichqhikingclub": "channel"
+  },
+  "chat": ""
  },
  {
   "ig": "northpeakmc",
@@ -147,7 +172,9 @@
   "web": "https://www.facebook.com/NorthPeak.mc",
   "active": true,
   "esora_slug": "north-peak-mountain-club",
-  "about": "Armenian hiking and mountaineering club that organizes guided personal and group tours and ascents (Aragats, Geghama, Mont Blanc area, etc.). Posts trip photos, route reports, and expedition announcements focused on outdoor adventure and community participation."
+  "about": "Armenian hiking and mountaineering club that organizes guided personal and group tours and ascents (Aragats, Geghama, Mont Blanc area, etc.). Posts trip photos, route reports, and expedition announcements focused on outdoor adventure and community participation.",
+  "telegram_kinds": {},
+  "chat": ""
  },
  {
   "ig": "hamshen_tour",
@@ -165,7 +192,9 @@
   "web": "https://hamshen.am/",
   "active": true,
   "esora_slug": "hamshen-tour",
-  "about": "Armenian tour operator specializing in hikes and cultural multi-day tours across Armenia, Western Armenia (Hamshen), Javakhk and neighboring regions. Focuses on historical sites, monasteries, landscapes and community-oriented travel experiences."
+  "about": "Armenian tour operator specializing in hikes and cultural multi-day tours across Armenia, Western Armenia (Hamshen), Javakhk and neighboring regions. Focuses on historical sites, monasteries, landscapes and community-oriented travel experiences.",
+  "telegram_kinds": {},
+  "chat": ""
  },
  {
   "ig": "onewaytour",
@@ -185,7 +214,11 @@
   "web": "https://onewaytour.com/",
   "active": true,
   "esora_slug": "one-way-tour",
-  "about": "Armenian tour operator offering individual and group trips across Armenia and Georgia — from hiking and cultural tours to hotel holiday packages and family-friendly experiences. Frequently promotes seasonal offers, hotel packages, and curated excursions aimed at outdoor exploration and local discovery."
+  "about": "Armenian tour operator offering individual and group trips across Armenia and Georgia — from hiking and cultural tours to hotel holiday packages and family-friendly experiences. Frequently promotes seasonal offers, hotel packages, and curated excursions aimed at outdoor exploration and local discovery.",
+  "telegram_kinds": {
+   "t.me/onewaytour": "channel"
+  },
+  "chat": ""
  },
  {
   "ig": "lavashtour",
@@ -203,7 +236,11 @@
   "web": "http://lavashtour.com/",
   "active": true,
   "esora_slug": "lavash-tour",
-  "about": "Armenian tour operator focused on guided hikes, mountaineering and private day trips. The feed highlights scenic mountain photography, trip announcements and practical hike details — adventurous, nature-focused and community-oriented."
+  "about": "Armenian tour operator focused on guided hikes, mountaineering and private day trips. The feed highlights scenic mountain photography, trip announcements and practical hike details — adventurous, nature-focused and community-oriented.",
+  "telegram_kinds": {
+   "t.me/lavashtourhiking": "channel"
+  },
+  "chat": ""
  },
  {
   "ig": "wehike.am",
@@ -222,7 +259,12 @@
   "web": "https://wehike.am/",
   "active": true,
   "esora_slug": "we-hike",
-  "about": "Armenia-based outdoor adventure organizer offering guided hikes, climbs, and international trekking expeditions. Combines community-driven local day hikes and family outings with challenging summits (Ararat, Teghenis, Gutanasar) and multi-week treks (Everest Base Camp, Annapurna, Kilimanjaro), plus educational meetups and training sessions."
+  "about": "Armenia-based outdoor adventure organizer offering guided hikes, climbs, and international trekking expeditions. Combines community-driven local day hikes and family outings with challenging summits (Ararat, Teghenis, Gutanasar) and multi-week treks (Everest Base Camp, Annapurna, Kilimanjaro), plus educational meetups and training sessions.",
+  "telegram_kinds": {
+   "t.me/hikeam": "channel",
+   "t.me/wehikechat": "group"
+  },
+  "chat": "t.me/wehikechat"
  },
  {
   "ig": "armway_hiking_club",
@@ -241,7 +283,9 @@
   "web": "",
   "active": true,
   "esora_slug": "armway-hiking-club",
-  "about": "Armenian hiking club and adventure tour organizer that runs guided day-hikes, multi‑day treks and high‑altitude expeditions (including Mount Ararat). Posts focus on trip programs, practical gear lists, logistics and registration details for outdoor adventures and cultural visits."
+  "about": "Armenian hiking club and adventure tour organizer that runs guided day-hikes, multi‑day treks and high‑altitude expeditions (including Mount Ararat). Posts focus on trip programs, practical gear lists, logistics and registration details for outdoor adventures and cultural visits.",
+  "telegram_kinds": {},
+  "chat": ""
  },
  {
   "ig": "ourpath.hiking",
@@ -261,7 +305,11 @@
   "web": "",
   "active": true,
   "esora_slug": "ourpath-hiking",
-  "about": "Armenian hiking and adventure group that runs guided day hikes and cultural nature excursions across Armenia, focusing on scenic trails, historical sites, and welcoming beginner-friendly outdoor experiences."
+  "about": "Armenian hiking and adventure group that runs guided day hikes and cultural nature excursions across Armenia, focusing on scenic trails, historical sites, and welcoming beginner-friendly outdoor experiences.",
+  "telegram_kinds": {
+   "t.me/turerarm": "channel"
+  },
+  "chat": ""
  },
  {
   "ig": "horizons_hiking_club",
@@ -279,7 +327,11 @@
   "web": "https://www.facebook.com/Horizons.arm",
   "active": true,
   "esora_slug": "horizons-hiking-club",
-  "about": "Armenian hiking and educational club that runs guided day hikes, mountain-guiding courses, and nature outings across Armenia, emphasizing scenic landscapes, skill-building, and community participation."
+  "about": "Armenian hiking and educational club that runs guided day hikes, mountain-guiding courses, and nature outings across Armenia, emphasizing scenic landscapes, skill-building, and community participation.",
+  "telegram_kinds": {
+   "t.me/horizons_hiking": "channel"
+  },
+  "chat": ""
  },
  {
   "ig": "kharuyk_hiking_club",
@@ -297,7 +349,9 @@
   "web": "https://www.kharuykhiking.am/",
   "active": true,
   "esora_slug": "kharuyk-hiking-club",
-  "about": "Armenian hiking and mountaineering club that organizes guided day hikes, peak ascents and mountaineering courses across Armenia. Friendly, beginner-welcoming outdoor adventures with practical training (navigation, first aid) and organized group logistics."
+  "about": "Armenian hiking and mountaineering club that organizes guided day hikes, peak ascents and mountaineering courses across Armenia. Friendly, beginner-welcoming outdoor adventures with practical training (navigation, first aid) and organized group logistics.",
+  "telegram_kinds": {},
+  "chat": ""
  },
  {
   "ig": "ari_hiking_club",
@@ -315,7 +369,9 @@
   "web": "",
   "active": true,
   "esora_slug": "ari-hiking-club",
-  "about": "Tailor-made guided outdoor adventures in Armenia and beyond — offering hiking, camping, gastro and cultural tours for all ages. Multilingual (Armenian/Russian/English) and family-friendly, they run day hikes, kids' outings and multi-day trekking trips."
+  "about": "Tailor-made guided outdoor adventures in Armenia and beyond — offering hiking, camping, gastro and cultural tours for all ages. Multilingual (Armenian/Russian/English) and family-friendly, they run day hikes, kids' outings and multi-day trekking trips.",
+  "telegram_kinds": {},
+  "chat": ""
  },
  {
   "ig": "ari.khokha",
@@ -331,7 +387,9 @@
   "web": "",
   "active": true,
   "esora_slug": "ari-khokha",
-  "about": "Children's hiking club offering outdoor hikes, overnight camps, urban walks, workshops and a hiking school for ages 3–6 and 6–14. Family-focused, activity-driven programs that combine play, nature skills, and light educational elements."
+  "about": "Children's hiking club offering outdoor hikes, overnight camps, urban walks, workshops and a hiking school for ages 3–6 and 6–14. Family-focused, activity-driven programs that combine play, nature skills, and light educational elements.",
+  "telegram_kinds": {},
+  "chat": ""
  },
  {
   "ig": "4_peaks_alpine_club",
@@ -349,7 +407,9 @@
   "web": "https://4peaks.am/",
   "active": true,
   "esora_slug": "4-peaks-alpine-club",
-  "about": "A children's mountain club (ages 4–14) in Armenia offering non-formal outdoor education through guided hikes, mountain climbs, camping and seasonal adventure programs. Events focus on hands-on learning, safety, and nature exploration for kids and families."
+  "about": "A children's mountain club (ages 4–14) in Armenia offering non-formal outdoor education through guided hikes, mountain climbs, camping and seasonal adventure programs. Events focus on hands-on learning, safety, and nature exploration for kids and families.",
+  "telegram_kinds": {},
+  "chat": ""
  },
  {
   "ig": "grqarshav",
@@ -365,7 +425,9 @@
   "web": "https://bit.ly/4jtlMZq",
   "active": true,
   "esora_slug": "grqarshav-club",
-  "about": "A community-led Armenian book-hiking club that combines literature, hiking and cultural visits across Armenia — organizing one- and multi-day nature outings with book discussions, museum stops, and communal activities in scenic outdoor settings."
+  "about": "A community-led Armenian book-hiking club that combines literature, hiking and cultural visits across Armenia — organizing one- and multi-day nature outings with book discussions, museum stops, and communal activities in scenic outdoor settings.",
+  "telegram_kinds": {},
+  "chat": ""
  },
  {
   "ig": "hike_with_safaryan",
@@ -381,7 +443,9 @@
   "web": "https://forms.gle/zd8QH1fTJxF59DAd8",
   "active": true,
   "esora_slug": "hike-with-safaryan",
-  "about": "Mountain hiking and trekking organizer offering small-group outdoor trips, ascents, and scenic routes in Armenia and nearby regions. Their events blend nature immersion, physical activity, and occasional cultural or environmental learning with an experienced-guides vibe."
+  "about": "Mountain hiking and trekking organizer offering small-group outdoor trips, ascents, and scenic routes in Armenia and nearby regions. Their events blend nature immersion, physical activity, and occasional cultural or environmental learning with an experienced-guides vibe.",
+  "telegram_kinds": {},
+  "chat": ""
  },
  {
   "ig": "trailo_tours",
@@ -401,7 +465,11 @@
   "web": "https://trailo.am/",
   "active": true,
   "esora_slug": "trailo-tours",
-  "about": "Small-group adventure travel operator offering guided hiking and trekking tours around the world. Their posts showcase immersive, multi-day nature expeditions (Dolomites, Patagonia, Iceland, Altai, Alaska, etc.) focused on scenic landscapes and group bonding."
+  "about": "Small-group adventure travel operator offering guided hiking and trekking tours around the world. Their posts showcase immersive, multi-day nature expeditions (Dolomites, Patagonia, Iceland, Altai, Alaska, etc.) focused on scenic landscapes and group bonding.",
+  "telegram_kinds": {
+   "t.me/trailotours": "channel"
+  },
+  "chat": ""
  },
  {
   "ig": "chilltrail_",
@@ -417,7 +485,9 @@
   "web": "",
   "active": true,
   "esora_slug": "chill-trail",
-  "about": "A community-led hiking club in Armenia offering guided day hikes across scenic, often unmarked trails. Friendly, “chill” atmosphere focused on outdoor exploration, moderate physical challenge, and social connection."
+  "about": "A community-led hiking club in Armenia offering guided day hikes across scenic, often unmarked trails. Friendly, “chill” atmosphere focused on outdoor exploration, moderate physical challenge, and social connection.",
+  "telegram_kinds": {},
+  "chat": ""
  },
  {
   "ig": "akamar_tour_company",
@@ -435,7 +505,9 @@
   "web": "",
   "active": true,
   "esora_slug": "akamar-tour-company",
-  "about": "AKAMAR Tour Company organizes outdoor trips and guided tours across Armenia, with a focus on hiking, camping, jeep adventures, and scenic cultural excursions. The experience is nature-forward and social, often paired with informative guiding, photo stops, and mobile dining in remote settings."
+  "about": "AKAMAR Tour Company organizes outdoor trips and guided tours across Armenia, with a focus on hiking, camping, jeep adventures, and scenic cultural excursions. The experience is nature-forward and social, often paired with informative guiding, photo stops, and mobile dining in remote settings.",
+  "telegram_kinds": {},
+  "chat": ""
  },
  {
   "ig": "speleo_club_black_bat",
@@ -455,7 +527,11 @@
   "web": "",
   "active": true,
   "esora_slug": "cave-tours-armenia-georgia",
-  "about": "Speleology-focused adventure operator running guided cave explorations and exploratory hikes across Armenia and Georgia. Emphasizes karst and volcanic caves, small-group speleo expeditions, off‑road access, and hands‑on underground exploration led by Armenian Speleo Club ‘Black Bat’."
+  "about": "Speleology-focused adventure operator running guided cave explorations and exploratory hikes across Armenia and Georgia. Emphasizes karst and volcanic caves, small-group speleo expeditions, off‑road access, and hands‑on underground exploration led by Armenian Speleo Club ‘Black Bat’.",
+  "telegram_kinds": {
+   "t.me/Armenianspeleoclub": "group"
+  },
+  "chat": "t.me/Armenianspeleoclub"
  },
  {
   "ig": "chanaparhord_hiking",
@@ -473,7 +549,9 @@
   "web": "https://www.facebook.com/groups/chanaparhord/",
   "active": true,
   "esora_slug": "chanaparhord-hiking",
-  "about": "Guided hiking and trekking tours across Armenia, leading group day-hikes and climbs to mountains, valleys, and historic monastery ruins. Community-oriented outdoor experiences focused on nature, scenery, and shared adventure."
+  "about": "Guided hiking and trekking tours across Armenia, leading group day-hikes and climbs to mountains, valleys, and historic monastery ruins. Community-oriented outdoor experiences focused on nature, scenery, and shared adventure.",
+  "telegram_kinds": {},
+  "chat": ""
  },
  {
   "ig": "hatistour",
@@ -489,7 +567,9 @@
   "web": "https://hatis.am/",
   "active": true,
   "esora_slug": "hatis-tour",
-  "about": "Armenian adventure travel company offering guided hikes, mountain climbs, and international trekking expeditions. Focused on active, community-oriented outdoor experiences from local day hikes to high-altitude journeys like Everest and Machu Picchu."
+  "about": "Armenian adventure travel company offering guided hikes, mountain climbs, and international trekking expeditions. Focused on active, community-oriented outdoor experiences from local day hikes to high-altitude journeys like Everest and Machu Picchu.",
+  "telegram_kinds": {},
+  "chat": ""
  },
  {
   "ig": "lernamania_hiking_club",
@@ -508,7 +588,9 @@
   "web": "",
   "active": true,
   "esora_slug": "lernamania-hiking-club",
-  "about": "Local guide and tour operator offering guided hiking and car tours across Armenia, with a strong focus on educational school hikes and community/group nature excursions. Emphasizes hands-on outdoor experiences, cultural visits, and skill-building activities for participants of varying ages."
+  "about": "Local guide and tour operator offering guided hiking and car tours across Armenia, with a strong focus on educational school hikes and community/group nature excursions. Emphasizes hands-on outdoor experiences, cultural visits, and skill-building activities for participants of varying ages.",
+  "telegram_kinds": {},
+  "chat": ""
  },
  {
   "ig": "mountains_of_syunik_hikingclub",
@@ -526,7 +608,11 @@
   "web": "",
   "active": true,
   "esora_slug": "mountains-of-syunik-hiking-club",
-  "about": "A Kapan-based hiking and jeeping tour operator offering guided mountain treks, sunrise climbs, regular monthly hikes and drone videography across Syunik's Zangezur range. Focused on active outdoor adventure, scenic photography, and small-group guided experiences."
+  "about": "A Kapan-based hiking and jeeping tour operator offering guided mountain treks, sunrise climbs, regular monthly hikes and drone videography across Syunik's Zangezur range. Focused on active outdoor adventure, scenic photography, and small-group guided experiences.",
+  "telegram_kinds": {
+   "t.me/mountainsofsyunik": "channel"
+  },
+  "chat": ""
  },
  {
   "ig": "qaylord.hiking.club",
@@ -546,7 +632,11 @@
   "web": "",
   "active": true,
   "esora_slug": "qaylord-hiking-club",
-  "about": "An Armenian hiking club that organizes guided mountain hikes, climbs, and nature outings across Armenia and nearby regions. The vibe is adventurous and communal, with a focus on challenging routes, scenic views, and shared outdoor experiences."
+  "about": "An Armenian hiking club that organizes guided mountain hikes, climbs, and nature outings across Armenia and nearby regions. The vibe is adventurous and communal, with a focus on challenging routes, scenic views, and shared outdoor experiences.",
+  "telegram_kinds": {
+   "t.me/qaylordner": "channel"
+  },
+  "chat": ""
  },
  {
   "ig": "sarimardik.hikingclub",
@@ -564,7 +654,11 @@
   "web": "",
   "active": true,
   "esora_slug": "sari-anin",
-  "about": "Armenian hiking club that organizes guided mountain hikes and outdoor adventures across Armenia, sharing route details, logistics, and scenic photos. Friendly to newcomers and runs paid day hikes, challenges, and group meetups."
+  "about": "Armenian hiking club that organizes guided mountain hikes and outdoor adventures across Armenia, sharing route details, logistics, and scenic photos. Friendly to newcomers and runs paid day hikes, challenges, and group meetups.",
+  "telegram_kinds": {
+   "t.me/sari_anin": "channel"
+  },
+  "chat": ""
  },
  {
   "ig": "that_trail_",
@@ -584,7 +678,11 @@
   "web": "",
   "active": true,
   "esora_slug": "that-trail",
-  "about": "Small-group, intentionally private guided hikes and outdoor trips across Armenia, focused on mountain climbs, canyons and reservoir/gastro outings; posts are bilingual and emphasize intimate, shared nature experiences. The account organizes participatory day trips that blend physical activity with social time (food, music) in natural settings."
+  "about": "Small-group, intentionally private guided hikes and outdoor trips across Armenia, focused on mountain climbs, canyons and reservoir/gastro outings; posts are bilingual and emphasize intimate, shared nature experiences. The account organizes participatory day trips that blend physical activity with social time (food, music) in natural settings.",
+  "telegram_kinds": {
+   "t.me/thattrail": "channel"
+  },
+  "chat": ""
  },
  {
   "ig": "travel_with_armholic",
@@ -600,7 +698,9 @@
   "web": "",
   "active": true,
   "esora_slug": "travel-with-armholic",
-  "about": "An Armenia-based tour organizer focused on mountain hikes, nature adventures, and scenic group excursions. Their content blends outdoor exploration with a strong community vibe, often highlighting iconic peaks, lakes, stargazing, and memorable shared experiences in the Armenian highlands."
+  "about": "An Armenia-based tour organizer focused on mountain hikes, nature adventures, and scenic group excursions. Their content blends outdoor exploration with a strong community vibe, often highlighting iconic peaks, lakes, stargazing, and memorable shared experiences in the Armenian highlands.",
+  "telegram_kinds": {},
+  "chat": ""
  },
  {
   "ig": "urbanarmenia3000",
@@ -618,7 +718,11 @@
   "web": "https://urbanarmenia.com/",
   "active": true,
   "esora_slug": "",
-  "about": ""
+  "about": "",
+  "telegram_kinds": {
+   "t.me/urbanarmenia": "group"
+  },
+  "chat": "t.me/urbanarmenia"
  },
  {
   "ig": "verkats_hiking_club",
@@ -638,7 +742,11 @@
   "web": "",
   "active": true,
   "esora_slug": "",
-  "about": ""
+  "about": "",
+  "telegram_kinds": {
+   "t.me/verkatshikingclub": "channel"
+  },
+  "chat": ""
  },
  {
   "ig": "armeniatour_team",
@@ -654,7 +762,9 @@
   "web": "http://armeniatourteam.am/",
   "active": true,
   "esora_slug": "armenia-tour-team",
-  "about": "Local Yerevan-based tour operator offering group and private tours across Armenia, focused on mountain and nature excursions, off-road adventures and scenic cultural sightseeing. The account highlights outdoor, small-group, experience-driven trips and community guides."
+  "about": "Local Yerevan-based tour operator offering group and private tours across Armenia, focused on mountain and nature excursions, off-road adventures and scenic cultural sightseeing. The account highlights outdoor, small-group, experience-driven trips and community guides.",
+  "telegram_kinds": {},
+  "chat": ""
  },
  {
   "ig": "dili_tours",
@@ -674,6 +784,10 @@
   "web": "",
   "active": false,
   "esora_slug": "",
-  "about": ""
+  "about": "",
+  "telegram_kinds": {
+   "t.me/dilitours": "person"
+  },
+  "chat": "t.me/dilitours"
  }
 ]

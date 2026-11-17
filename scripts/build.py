@@ -192,6 +192,8 @@ for c in clubs:
         "up": sum(1 for h in data if h["cs"] == s and h["k"] != "big"),
         "phone": c.get("phone", []), "telegram": c.get("telegram", []), "whatsapp": c.get("whatsapp", ""),
         "email": c.get("email", ""), "web": c.get("web", ""),
+        # best Telegram link people can message (person, else group); see scripts/check_telegram.py
+        "chat": c.get("chat", ""), "chatKind": c.get("telegram_kinds", {}).get(c.get("chat", ""), ""),
     })
 trail_out = {t["id"]: {"name": t["name"], "km": t["km"], "lines": t["lines"]} for t in trails if t["id"] in used_trails}
 
@@ -239,6 +241,8 @@ page(ROOT / "index.html", "./", f"{SITE_NAME} · Every group hike in Armenia",
      f"{n_up} upcoming group hikes from {len(pub_clubs)} Armenian hiking clubs, in English, Armenian and Russian.", 'data-page="home"')
 page(ROOT / "clubs/index.html", "../", f"Hiking clubs in Armenia · {SITE_NAME}",
      f"All {len(pub_clubs)} hiking clubs and tour operators in Armenia, with their upcoming hikes.", 'data-page="clubs"')
+page(ROOT / "me/index.html", "../", f"My hikes · {SITE_NAME}",
+     "The hikes you signed up for in the AllHikes Telegram app.", 'data-page="me"')
 keep = set()
 for c in pub_clubs:
     keep.add(c["slug"])

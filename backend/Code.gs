@@ -6,12 +6,16 @@
 
    The mini app POSTs {action, initData, hike?, on?}. initData is the signed proof from
    Telegram of who the user is; nothing is saved unless that signature checks out.
-   A daily trigger at 18:00 Yerevan time sends a reminder for tomorrow's hikes. */
+   A daily trigger at 18:00 Yerevan time sends a reminder for tomorrow's hikes.
+   A person's Telegram account is their AllHikes account: every signed-in call also updates
+   their row in the "Users" tab. "booked" is set by the person themselves in My hikes. */
 
 const APP_URL = "https://yerevent.github.io/allhikes/";
 const TZ = "Asia/Yerevan";
 const SHEET = "Signups";
-const HEAD = ["time", "hike_id", "hike", "date", "club", "user_id", "name", "username", "lang", "status", "reminded"];
+const HEAD = ["time", "hike_id", "hike", "date", "club", "user_id", "name", "username", "lang", "status", "reminded", "booked"];
+const USERS = "Users";
+const UHEAD = ["user_id", "name", "username", "lang", "first_seen", "last_seen"];
 const C = Object.fromEntries(HEAD.map((h, i) => [h, i]));
 
 /* ---------- web app ---------- */
@@ -23,7 +27,9 @@ function doPost(e) {
   const lock = LockService.getScriptLock();
   lock.waitLock(15000);
   try {
+    saveUser_(user);
     if (body.action === "going") setGoing_(user, body.hike || {}, !!body.on);
+    if (body.action === "booked") setBooked_(user, (body.hike || {}).id, !!body.on);
     const rows = rows_();
     return json_({ok: true, mine: mine_(rows, user.id), counts: counts_(rows)});
   } catch (err) {
@@ -66,10 +72,31 @@ function sheet_() {
   const ss = SpreadsheetApp.getActive();
   let sh = ss.getSheetByName(SHEET);
   if (!sh) { sh = ss.insertSheet(SHEET); sh.appendRow(HEAD); sh.setFrozenRows(1); }
+  if (sh.getLastColumn() < HEAD.length) sh.getRange(1, 1, 1, HEAD.length).setValues([HEAD]); // new columns added later
   return sh;
 }
 function rows_() {
-  return sheet_().getDataRange().getValues().slice(1);
+  return sheet_().getDataRange().getValues().slice(1).map(r => r.concat(Array(Math.max(0, HEAD.length - r.length)).fill("")));
+}
+const fullName_ = u => [u.first_name, u.last_name].filter(Boolean).join(" ").slice(0, 120);
+
+function saveUser_(user) {
+  const ss = SpreadsheetApp.getActive();
+  let sh = ss.getSheetByName(USERS);
+  if (!sh) { sh = ss.insertSheet(USERS); sh.appendRow(UHEAD); sh.setFrozenRows(1); }
+  const rows = sh.getDataRange().getValues();
+  const i = rows.findIndex((r, n) => n > 0 && String(r[0]) === String(user.id));
+  const now = new Date();
+  const row = [String(user.id), fullName_(user), user.username ? "@" + user.username : "", (user.language_code || "").slice(0, 2)];
+  if (i > 0) sh.getRange(i + 1, 1, 1, 6).setValues([row.concat([rows[i][4], now])]);
+  else sh.appendRow(row.concat([now, now]));
+}
+
+function setBooked_(user, id, on) {
+  const rows = rows_();
+  const i = rows.findIndex(r => String(r[C.hike_id]) === String(id) && String(r[C.user_id]) === String(user.id) && r[C.status] === "going");
+  if (i < 0) throw new Error("not signed up for this hike");
+  sheet_().getRange(i + 2, C.booked + 1).setValue(on ? "yes" : "");
 }
 const today_ = (days) => Utilities.formatDate(new Date(Date.now() + (days || 0) * 864e5), TZ, "yyyy-MM-dd");
 const day_ = v => v instanceof Date ? Utilities.formatDate(v, TZ, "yyyy-MM-dd") : String(v);
@@ -82,16 +109,19 @@ function setGoing_(user, hike, on) {
   const i = rows.findIndex(r => String(r[C.hike_id]) === id && String(r[C.user_id]) === String(user.id));
   const row = [
     new Date(), id, String(hike.name || "").slice(0, 200), "'" + hike.date, String(hike.club || "").slice(0, 120),
-    String(user.id), [user.first_name, user.last_name].filter(Boolean).join(" ").slice(0, 120),
+    String(user.id), fullName_(user),
     user.username ? "@" + user.username : "", (user.language_code || "en").slice(0, 2),
     on ? "going" : "cancelled", i >= 0 ? rows[i][C.reminded] : "",
+    on && i >= 0 && rows[i][C.status] === "going" ? rows[i][C.booked] : "",
   ];
   if (i >= 0) sh.getRange(i + 2, 1, 1, HEAD.length).setValues([row]);
   else if (on) sh.appendRow(row);
 }
 
 function mine_(rows, userId) {
-  return rows.filter(r => String(r[C.user_id]) === String(userId) && r[C.status] === "going").map(r => String(r[C.hike_id]));
+  return rows.filter(r => String(r[C.user_id]) === String(userId) && r[C.status] === "going").map(r => ({
+    id: String(r[C.hike_id]), name: String(r[C.hike]), date: day_(r[C.date]), club: String(r[C.club]), booked: r[C.booked] === "yes",
+  }));
 }
 
 function counts_(rows) {
@@ -104,9 +134,9 @@ function counts_(rows) {
 
 /* ---------- reminders (daily trigger) ---------- */
 const MSG = {
-  en: (h, club, others) => `⛰ Tomorrow: ${h}\nwith ${club}.\n\n${others ? `You and ${others} more from AllHikes are going. ` : ""}Make sure you've booked your place with the club. Have a great hike!`,
-  ru: (h, club, others) => `⛰ Завтра: ${h}\nс ${club}.\n\n${others ? `Вместе с вами идут ещё ${others} человек из AllHikes. ` : ""}Не забудьте записаться у клуба. Хорошего похода!`,
-  hy: (h, club, others) => `⛰ Վաղը՝ ${h}\n${club}-ի հետ։\n\n${others ? `Ձեզ հետ AllHikes-ից գալիս է ևս ${others} հոգի։ ` : ""}Համոզվեք, որ տեղ եք ամրագրել ակումբում։ Լավ արշավ։`,
+  en: (h, club, others, booked) => `⛰ Tomorrow: ${h}\nwith ${club}.\n\n${others ? `You and ${others} more from AllHikes are going. ` : ""}${booked ? "Have a great hike!" : "You haven't marked this hike as booked yet: message the club to make sure you have a place."}`,
+  ru: (h, club, others, booked) => `⛰ Завтра: ${h}\nс ${club}.\n\n${others ? `Вместе с вами идут ещё ${others} человек из AllHikes. ` : ""}${booked ? "Хорошего похода!" : "Вы ещё не отметили, что записались: напишите клубу, чтобы точно было место."}`,
+  hy: (h, club, others, booked) => `⛰ Վաղը՝ ${h}\n${club}-ի հետ։\n\n${others ? `Ձեզ հետ AllHikes-ից գալիս է ևս ${others} հոգի։ ` : ""}${booked ? "Լավ արշավ։" : "Դուք դեռ չեք նշել, որ ամրագրել եք. գրեք ակումբին՝ տեղ ունենալու համար։"}`,
 };
 const BTN = {en: "Open AllHikes", ru: "Открыть AllHikes", hy: "Բացել AllHikes"};
 
@@ -118,7 +148,7 @@ function sendReminders() {
     const lang = MSG[r[C.lang]] ? r[C.lang] : "en";
     const ok = tg_("sendMessage", {
       chat_id: String(r[C.user_id]),
-      text: MSG[lang](r[C.hike], r[C.club], others),
+      text: MSG[lang](r[C.hike], r[C.club], others, r[C.booked] === "yes"),
       reply_markup: {inline_keyboard: [[{text: BTN[lang], web_app: {url: APP_URL}}]]},
     });
     sh.getRange(i + 2, C.reminded + 1).setValue(ok ? sentOn : "failed " + sentOn);
