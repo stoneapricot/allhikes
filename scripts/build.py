@@ -203,7 +203,9 @@ trail_out = {t["id"]: {"name": t["name"], "km": t["km"], "lines": t["lines"]} fo
 
 # ---------- page shells ----------
 def page(path, root, title, desc, body_attrs):
-    v = today.strftime("%Y%m%d")
+    # each file's version is a hash of its contents, so phones (and Telegram) fetch it again
+    # as soon as it changes, even twice on the same day
+    v = {f: hashlib.sha1((ROOT / "assets" / f).read_bytes()).hexdigest()[:10] for f in ("style.css", "data.js", "app.js")}
     out = f"""<!doctype html>
 <html lang="en">
 <head>
@@ -219,12 +221,12 @@ def page(path, root, title, desc, body_attrs):
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;600;700&family=Golos+Text:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500;600&family=Noto+Sans+Armenian:wdth,wght@75..100,400..700&display=swap">
-<link rel="stylesheet" href="{root}assets/style.css?v={v}">
+<link rel="stylesheet" href="{root}assets/style.css?v={v["style.css"]}">
 </head>
 <body {body_attrs} data-root="{root}">
 <noscript><p style="padding:16px">AllHikes needs JavaScript to show the hikes.</p></noscript>
-<script src="{root}assets/data.js?v={v}"></script>
-<script src="{root}assets/app.js?v={v}"></script>
+<script src="{root}assets/data.js?v={v["data.js"]}"></script>
+<script src="{root}assets/app.js?v={v["app.js"]}"></script>
 </body>
 </html>
 """
