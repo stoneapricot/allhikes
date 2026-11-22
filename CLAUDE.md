@@ -41,7 +41,7 @@ width (430px), and switch through all three languages on the home, clubs and one
 ## Telegram Mini App
 
 The same site opens inside Telegram (bot @AllHikesArmeniaBot) from the bot's menu button (set in @BotFather to
-`https://apricot-stone.github.io/allhikes/`). There is no separate app and no server. `app.js` spots
+`https://stoneapricot.github.io/allhikes/`). There is no separate app and no server. `app.js` spots
 Telegram by the `#tgWebAppData` it adds to the first URL and remembers that, plus the language and
 light/dark, in sessionStorage. It only loads Telegram's script there. Inside Telegram it uses
 Telegram's colours, shows Telegram's back button on inner pages and the map popup, opens outside
