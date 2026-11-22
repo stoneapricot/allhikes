@@ -10,7 +10,7 @@
    A person's Telegram account is their AllHikes account: every signed-in call also updates
    their row in the "Users" tab. "booked" is set by the person themselves in My hikes. */
 
-const APP_URL = "https://yerevent.github.io/allhikes/";
+const APP_URL = "https://apricot-stone.github.io/allhikes/";
 const TZ = "Asia/Yerevan";
 const SHEET = "Signups";
 const HEAD = ["time", "hike_id", "hike", "date", "club", "user_id", "name", "username", "lang", "status", "reminded", "booked"];
