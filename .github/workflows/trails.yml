@@ -27,6 +27,6 @@ jobs:
         run: |
           git config user.name "allhikes-bot"
           git config user.email "actions@github.com"
-          git add data index.html clubs assets/data.js
+          git add -A
           git diff --cached --quiet || git commit -m "Trails from OpenStreetMap $(date -u +%F)"
           git pull --rebase -q && git push
