@@ -50,7 +50,9 @@ if usage.get(month, 0) >= BD_MONTHLY_CAP:
     sys.exit(f"Stopped: this month's Bright Data cap ({BD_MONTHLY_CAP}) is reached. Raise BD_MONTHLY_CAP to continue.")
 BD = os.environ.get("BRIGHTDATA_TOKEN")
 if not BD or not os.environ.get("ANTHROPIC_API_KEY"):
-    sys.exit("Missing BRIGHTDATA_TOKEN or ANTHROPIC_API_KEY. Add them as GitHub secrets.")
+    # Not set up yet: skip without failing, so GitHub doesn't email a "run failed" every week.
+    print("::warning::Skipped: add the BRIGHTDATA_TOKEN and ANTHROPIC_API_KEY secrets to collect Instagram hikes.")
+    sys.exit(0)
 
 
 # ---------- 1. Bright Data ----------
