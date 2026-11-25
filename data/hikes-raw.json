@@ -1,80 +1,5 @@
 [
  {
-  "slug": "gravi-gorge-c78dece6",
-  "name": {
-   "en": "Grav Gorge Hike",
-   "hy": "Գրավի կիրճ",
-   "ru": "Поход в ущелье Грави"
-  },
-  "start": "2026-11-24",
-  "end": null,
-  "org": "110 Places Hiking Club",
-  "ig": "110_places",
-  "place": "Yerevan",
-  "lat": null,
-  "lng": null,
-  "price": 11000,
-  "book": "https://www.instagram.com/p/DVluqdJCNws/",
-  "km": null,
-  "gain": null,
-  "summit": null,
-  "diffText": null,
-  "back": null,
-  "meet": null,
-  "desc": "A world of cliffs and striking natural rock formations.",
-  "esora": "https://esora.app/en/events/gravi-gorge-c78dece6"
- },
- {
-  "slug": "evening-run-e01a5aea",
-  "name": {
-   "en": "Evening Run",
-   "hy": "Երեկոյան վազք",
-   "ru": "Вечерняя пробежка"
-  },
-  "start": "2026-11-24T18:30:00+04:00",
-  "end": null,
-  "org": "TriClub Yerevan",
-  "ig": "triclubyerevan",
-  "place": "Vardavar Lake",
-  "lat": 40.1536352,
-  "lng": 44.5274223,
-  "price": 0,
-  "book": "https://www.instagram.com/p/DgFrv8vNj-i/",
-  "km": null,
-  "gain": null,
-  "summit": null,
-  "diffText": null,
-  "back": null,
-  "meet": null,
-  "desc": "Free group workout open to participants of all levels.",
-  "esora": "https://esora.app/en/events/evening-run-e01a5aea"
- },
- {
-  "slug": "victory-park-run-41e16a30",
-  "name": {
-   "en": "Victory Park Run",
-   "hy": "Վազք Հաղթանակի զբոսայգում",
-   "ru": "Пробежка в парке «Победа»"
-  },
-  "start": "2026-11-24T20:00:00+04:00",
-  "end": null,
-  "org": "Yerevan Run",
-  "ig": "yerevanrun",
-  "place": "Victory Park",
-  "lat": 40.195669599999995,
-  "lng": 44.5202987,
-  "price": 0,
-  "book": "https://www.instagram.com/p/DgGJWQ0iDiO/",
-  "km": 5.0,
-  "gain": null,
-  "summit": null,
-  "diffText": null,
-  "back": null,
-  "meet": "lake bridge.",
-  "desc": "Distance: 5 km.",
-  "esora": "https://esora.app/en/events/victory-park-run-41e16a30"
- },
- {
   "slug": "evening-run-cf60c5f6",
   "name": {
    "en": "Evening Run",
@@ -275,29 +200,29 @@
   "esora": "https://esora.app/en/events/yeghnakhaghats-ler-8bd4a456"
  },
  {
-  "slug": "smbataberd-smbataberd-1b42ed87",
+  "slug": "tsaghkunyats-lerner-tsaghkadzorits-bjni-tsaghkunyats-mountains-3cc7ec27",
   "name": {
-   "en": "Smbataberd and Tsaghats Kar Hike",
-   "hy": "Արշավ դեպի Սմբատաբերդ և Ցաղաց Քար",
-   "ru": "Поход к Смбатаберду и Цахац Кару"
+   "en": "Tsaghkunyats Mountains: Tsaghkadzor to Bjni",
+   "hy": "Ծաղկունյաց լեռներ․ Ծաղկաձորից դեպի Բջնի",
+   "ru": "Цахкуняцские горы: от Цахкадзора до Бжни"
   },
   "start": "2026-11-28T07:30:00+04:00",
   "end": null,
   "org": "ArmLand Adventure & Travel",
   "ig": "armland_adventure",
-  "place": "Vayots Dzor Province",
-  "lat": 39.764199600000005,
-  "lng": 45.3337528,
-  "price": 8000,
-  "book": "https://www.facebook.com/events/1539706937923590/",
-  "km": 10.0,
+  "place": "Yerevan",
+  "lat": null,
+  "lng": null,
+  "price": 8500,
+  "book": "https://www.facebook.com/events/1648015437046344/",
+  "km": 15.0,
   "gain": null,
   "summit": null,
   "diffText": null,
   "back": null,
-  "meet": "Republic Square, beginning of Vazgen Sargsyan Street near Marriott Hotel.",
-  "desc": "A 10 km hike in Vayots Dzor starting from the village of Artabuynk, visiting the 10th–11th century fortress of Smbataberd overlooking the Yeghegis valley, and continuing to the Tsaghats Kar monastic complex.",
-  "esora": "https://esora.app/en/events/smbataberd-smbataberd-1b42ed87"
+  "meet": "Republic Square, beginning of Vazgen Sargsyan Street, near the Marriott Hotel.",
+  "desc": "A 15 km point-to-point hike through pine forests and mountain meadows, starting from Tsaghkadzor and ending at the historical Bjni Fortress.",
+  "esora": "https://esora.app/en/events/tsaghkunyats-lerner-tsaghkadzorits-bjni-tsaghkunyats-mountains-3cc7ec27"
  },
  {
   "slug": "ayrikar-ler-0e0804fd",
@@ -375,6 +300,31 @@
   "esora": "https://esora.app/en/events/ara-ler-34fd3937"
  },
  {
+  "slug": "hiking-in-lori-mount-geghasar-and-caves-0ef53a91",
+  "name": {
+   "en": "Hiking in Lori: Mt. Geghasar",
+   "hy": "Արշավ Լոռիում. Գեղասար լեռ",
+   "ru": "Поход в Лори: гора Гегасар"
+  },
+  "start": "2026-11-28T08:00:00+04:00",
+  "end": null,
+  "org": "We Hike Armenia",
+  "ig": "wehike.am",
+  "place": "Mount Geghasar",
+  "lat": 40.8334772,
+  "lng": 44.1903266,
+  "price": 22000,
+  "book": "https://www.instagram.com/p/DWqYN4LFuP5/",
+  "km": 10.0,
+  "gain": 400.0,
+  "summit": null,
+  "diffText": "light",
+  "back": null,
+  "meet": null,
+  "desc": "• Distance: 10 km",
+  "esora": "https://esora.app/en/events/hiking-in-lori-mount-geghasar-and-caves-0ef53a91"
+ },
+ {
   "slug": "lorut-marts-surb-amenaprkich-khachkar-2ab10f7c",
   "name": {
    "en": "Lorut–Marts: The Holy Savior Cross-Stone",
@@ -395,8 +345,8 @@
   "summit": null,
   "diffText": null,
   "back": "20:30",
-  "meet": "Sakharov Square, at the corner of Nalbandyan and Pushkin streets (by the former fire station). Please arrive 10 minutes early.",
-  "desc": "A 13 km hike along the Lorut–Marts section of the National Trail in Lori, starting in the village of Lorut and winding along forest trails to Marts. Along the way, the route stops at the 13th-century Amenaprkich (Holy Savior) khachkar at the \"Hermit's Stone\" settlement, known for its carved Crucifix",
+  "meet": "Sakharov Square, at the corner of Nalbandyan and Pushkin streets near the former fire station. Please arrive 10 minutes early.",
+  "desc": "A 13 km hike along the National Trail in Lori, starting in the village of Lorut and leading through forest paths to the village of Marts. Along the way, the route stops at the 13th-century Amenaprkich (Holy Savior) khachkar in the historic forest settlement of “Hermit's Stone”, known for its depicti",
   "esora": "https://esora.app/en/events/lorut-marts-surb-amenaprkich-khachkar-2ab10f7c"
  },
  {
@@ -448,6 +398,56 @@
   "meet": null,
   "desc": "A 15 km hike starting from the village of Lanjazat in Ararat Province, walking along the slopes of the Yeranos Mountains with views of the Azat Reservoir and the canyon's colorful rock formations.",
   "esora": "https://esora.app/en/events/hike-to-the-pink-gorge-75de4f9a"
+ },
+ {
+  "slug": "spitakavor-loop-trail-2c0ae081",
+  "name": {
+   "en": "Spitakavor Loop Trail",
+   "hy": "Սպիտակավորի շրջանաձև արահետ",
+   "ru": "Кольцевая тропа к Спитакавору"
+  },
+  "start": "2026-11-28T08:00:00+04:00",
+  "end": null,
+  "org": "That Trail Hikes",
+  "ig": "that_trail_",
+  "place": "Yerevan",
+  "lat": null,
+  "lng": null,
+  "price": 18000,
+  "book": "https://www.instagram.com/p/DgIXKiiiN9V/",
+  "km": 12.0,
+  "gain": 700.0,
+  "summit": null,
+  "diffText": null,
+  "back": null,
+  "meet": null,
+  "desc": "A loop hike to Spitakavor Monastery in Vayots Dzor Province.",
+  "esora": "https://esora.app/en/events/spitakavor-loop-trail-2c0ae081"
+ },
+ {
+  "slug": "arshav-depi-odzun-horomayr-ev-kobayr-1bc3c1c0",
+  "name": {
+   "en": "Hike to Odzun, Horomayr, and Kobayr",
+   "hy": "Արշավ դեպի Օձուն, Հոռոմայր և Քոբայր",
+   "ru": "Поход в Одзун, Оромайр и Кобайр"
+  },
+  "start": "2026-11-28T08:30:00+04:00",
+  "end": null,
+  "org": "Sari Anin",
+  "ig": "sarimardik.hikingclub",
+  "place": "Republic Square",
+  "lat": 40.178529,
+  "lng": 44.515632,
+  "price": 11000,
+  "book": "https://www.instagram.com/p/DgInLLaiPoj/",
+  "km": 10.0,
+  "gain": null,
+  "summit": null,
+  "diffText": "easy, suitable for beginners",
+  "back": null,
+  "meet": "near Republic Square metro station. There will be a food stop along the way.",
+  "desc": "A hike exploring the nature and historical monuments of Lori, with views of canyons, forests, and mountains.",
+  "esora": "https://esora.app/en/events/arshav-depi-odzun-horomayr-ev-kobayr-1bc3c1c0"
  },
  {
   "slug": "new-khayking-eranos-ca56d71e",
@@ -725,6 +725,31 @@
   "esora": "https://esora.app/en/events/mtnadzori-kirch-ashnanayin-kaylarshav-2e370e9c"
  },
  {
+  "slug": "smbataberd-smbataberd-1b42ed87",
+  "name": {
+   "en": "Smbataberd and Tsaghats Kar",
+   "hy": "Արշավ դեպի Սմբատաբերդ և Ցաղաց Քար",
+   "ru": "Поход к Смбатаберду и Цахац Кару"
+  },
+  "start": "2026-11-29T07:30:00+04:00",
+  "end": null,
+  "org": "ArmLand Adventure & Travel",
+  "ig": "armland_adventure",
+  "place": "Vayots Dzor Province",
+  "lat": 39.764199600000005,
+  "lng": 45.3337528,
+  "price": 8000,
+  "book": "https://www.facebook.com/events/1539706937923590/",
+  "km": 10.0,
+  "gain": null,
+  "summit": null,
+  "diffText": null,
+  "back": null,
+  "meet": "Republic Square, beginning of Vazgen Sargsyan Street near Marriott Hotel",
+  "desc": "A hiking trip in Vayots Dzor to explore the 10th–11th-century fortress of Smbataberd, overlook the Yeghegis valley and surrounding mountains, and visit the Tsaghats Kar monastery complex.",
+  "esora": "https://esora.app/en/events/smbataberd-smbataberd-1b42ed87"
+ },
+ {
   "slug": "hike-from-odzun-to-kobayr-through-debed-gorge-e6de3b18",
   "name": {
    "en": "Hike from Odzun to Kobayr through Debed Canyon",
@@ -773,31 +798,6 @@
   "meet": null,
   "desc": "A hike to the famous rock of Mount Kalasar with views of the Teksar mountains.",
   "esora": "https://esora.app/en/events/kalasar-leran-haytni-zhayry-eda9b57a"
- },
- {
-  "slug": "tsaghkunyats-lerner-tsaghkadzorits-bjni-tsaghkunyats-mountains-3cc7ec27",
-  "name": {
-   "en": "Tsaghkunyats Mountains: Tsaghkadzor to Bjni",
-   "hy": "Ծաղկունյաց լեռներ․ Ծաղկաձորից դեպի Բջնի",
-   "ru": "Цахкуняцские горы: от Цахкадзора до Бжни"
-  },
-  "start": "2026-11-29T07:30:00+04:00",
-  "end": null,
-  "org": "ArmLand Adventure & Travel",
-  "ig": "armland_adventure",
-  "place": "Yerevan",
-  "lat": null,
-  "lng": null,
-  "price": 8500,
-  "book": "https://www.facebook.com/events/1648015437046344/",
-  "km": 15.0,
-  "gain": null,
-  "summit": null,
-  "diffText": null,
-  "back": null,
-  "meet": "Republic Square, near the Marriott Hotel.",
-  "desc": "A 15 km linear hike along the scenic trails of the Tsaghkunyats Mountains, leading through pine forests and open alpine meadows from Tsaghkadzor to historic Bjni. The trail concludes at the Bjni Fortress, perched atop a rock (fortress admission is not included in the fee).",
-  "esora": "https://esora.app/en/events/tsaghkunyats-lerner-tsaghkadzorits-bjni-tsaghkunyats-mountains-3cc7ec27"
  },
  {
   "slug": "hiking-to-the-pink-canyon-92460eb8",
@@ -973,6 +973,56 @@
   "meet": "Citadel Business Center (105/1 Teryan St).",
   "desc": "A hiking and off-road group tour to Khosrov Forest State Reserve, starting from the Garni entrance.",
   "esora": "https://esora.app/en/events/khmbayin-tur-depi-khosrovi-argelots-3a1beed7"
+ },
+ {
+  "slug": "hiking-to-pink-gorge-3bb6702e",
+  "name": {
+   "en": "7 Colours of Mt. Yeranos: Hike to Pink Gorge",
+   "hy": "Երանոս լեռան 7 գույները. արշավ դեպի Վարդագույն կիրճ",
+   "ru": "7 цветов горы Еранос: хайк к Розовому ущелью"
+  },
+  "start": "2026-11-29T08:00:00+04:00",
+  "end": null,
+  "org": "We Hike Armenia",
+  "ig": "wehike.am",
+  "place": "Pink Canyon",
+  "lat": 40.067313,
+  "lng": 44.63609160000001,
+  "price": 20000,
+  "book": "https://www.instagram.com/p/DgIpv5PjVZY/",
+  "km": 12.0,
+  "gain": 500.0,
+  "summit": null,
+  "diffText": "Light+",
+  "back": null,
+  "meet": null,
+  "desc": "• Distance: 12 km",
+  "esora": "https://esora.app/en/events/hiking-to-pink-gorge-3bb6702e"
+ },
+ {
+  "slug": "azgayin-arahet-taratumb-hors-tapalots-ler-f6c12eb9",
+  "name": {
+   "en": "National Trail: Taratumb to Hors and Mt. Tapalots",
+   "hy": "Ազգային արահետ՝ Թառաթումբից Հորս, Տապալոց լեռ",
+   "ru": "Национальная тропа: Таратумб — Орс и гора Тапалоц"
+  },
+  "start": "2026-11-29T08:00:00+04:00",
+  "end": null,
+  "org": "ARI Hiking Club",
+  "ig": "ari_hiking_club",
+  "place": "Yerevan",
+  "lat": null,
+  "lng": null,
+  "price": 12500,
+  "book": "https://www.instagram.com/p/Df19yGWFJJS/",
+  "km": 13.0,
+  "gain": 640.0,
+  "summit": 2160.0,
+  "diffText": null,
+  "back": "20:30",
+  "meet": "Sakharov Square (Nalbandyan-Pushkin corner, near the former fire station). Please arrive 10 minutes before departure; the group does not wai",
+  "desc": "A hike along a section of the National Trail in Vayots Dzor. The route begins in the village of Taratumb, ascends Mount Tapalots (2,160 m) with views of the snow-covered peaks of the Texar and Karkatar ranges, and concludes with a visit to the Orbelian princely palace in Hors.",
+  "esora": "https://esora.app/en/events/azgayin-arahet-taratumb-hors-tapalots-ler-f6c12eb9"
  },
  {
   "slug": "gravi-vishapi-kirch-boloraberd-kaylarshav-hiking-in-grav-gorge-4bd2320b",
@@ -1225,31 +1275,6 @@
   "esora": "https://esora.app/en/events/gnishiki-kirchov-75f011c9"
  },
  {
-  "slug": "mets-parakhadem-9b4f9ed9",
-  "name": {
-   "en": "Ascent of Mets Parakhadem",
-   "hy": "Վերելք Մեծ Փարախադեմ",
-   "ru": "Восхождение на Мец Парахадем"
-  },
-  "start": "2026-12-13",
-  "end": null,
-  "org": "Our path",
-  "ig": "ourpath.hiking",
-  "place": "Yerevan",
-  "lat": null,
-  "lng": null,
-  "price": null,
-  "book": "https://www.instagram.com/p/De2EOJhiGDm/",
-  "km": 14.0,
-  "gain": 650.0,
-  "summit": null,
-  "diffText": null,
-  "back": null,
-  "meet": "35 Isahakyan St.",
-  "desc": "Hike to Mets Parakhadem, starting near the village of Tigranashen along mountain trails and paths leading to the summit, with views of Mount Ararat in clear weather.",
-  "esora": "https://esora.app/en/events/mets-parakhadem-9b4f9ed9"
- },
- {
   "slug": "dragons-fly-120m-rope-jumping-2f72ff8b",
   "name": {
    "en": "Rope Jumping 120m",
@@ -1275,9 +1300,9 @@
   "esora": "https://esora.app/en/events/dragons-fly-120m-rope-jumping-2f72ff8b"
  },
  {
-  "slug": "mets-parakhadem-520c5b27",
+  "slug": "mets-parakhadem-9b4f9ed9",
   "name": {
-   "en": "Hiking to Mount Mets Parakhadem",
+   "en": "Ascent of Mets Parakhadem",
    "hy": "Վերելք Մեծ Փարախադեմ",
    "ru": "Восхождение на Мец Парахадем"
   },
@@ -1289,15 +1314,15 @@
   "lat": null,
   "lng": null,
   "price": 8500,
-  "book": "https://www.facebook.com/events/1807794246941775/",
+  "book": "https://www.instagram.com/p/De2EOJhiGDm/",
   "km": 14.0,
   "gain": 650.0,
   "summit": null,
   "diffText": null,
-  "back": "19:00",
-  "meet": "Isahakyan 35.",
-  "desc": "A hiking ascent to Mount Mets Parakhadem in the Ararat region, starting near the village of Tigranashen along mountain trails and roads toward the peak, with views of Mount Ararat in clear weather.",
-  "esora": "https://esora.app/en/events/mets-parakhadem-520c5b27"
+  "back": null,
+  "meet": "35 Isahakyan Street.",
+  "desc": "Ascent to the summit of Mets Parakhadem in the Urts mountain range. The hike starts near the village of Tigranashen and continues along mountain trails and roads toward the peak, offering views of Mount Ararat in clear weather.",
+  "esora": "https://esora.app/en/events/mets-parakhadem-9b4f9ed9"
  },
  {
   "slug": "tapi-gevorg-marzpetunu-berd-cffd6732",
