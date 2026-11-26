@@ -1,30 +1,5 @@
 [
  {
-  "slug": "evening-run-cf60c5f6",
-  "name": {
-   "en": "Evening Run",
-   "hy": "Երեկոյան վազք",
-   "ru": "Вечерняя пробежка"
-  },
-  "start": "2026-11-25T18:00:00+04:00",
-  "end": null,
-  "org": "TriClub Yerevan",
-  "ig": "triclubyerevan",
-  "place": "Yerevan",
-  "lat": null,
-  "lng": null,
-  "price": 0,
-  "book": "https://www.instagram.com/p/Dfh4dd7jecs/",
-  "km": null,
-  "gain": null,
-  "summit": null,
-  "diffText": null,
-  "back": null,
-  "meet": null,
-  "desc": "Free group training open to all levels.",
-  "esora": "https://esora.app/en/events/evening-run-cf60c5f6"
- },
- {
   "slug": "kruzhochki-run-f36a3a14",
   "name": {
    "en": "Kruzhochki Run",
@@ -486,8 +461,8 @@
   "org": "Aktiv Up",
   "ig": "aktivup_hiking_club",
   "place": "SAS",
-  "lat": 40.186403999999996,
-  "lng": 44.522442,
+  "lat": 40.1964195,
+  "lng": 44.4935178,
   "price": 8500,
   "book": "https://www.instagram.com/p/DgC2B1NgLYk/",
   "km": 13.0,
@@ -496,7 +471,7 @@
   "diffText": null,
   "back": "22:00",
   "meet": null,
-  "desc": "A moderate hike to the summit of Mount Mets Parakhadem (1949 m) in Ararat Province to watch the sunset overlooking Mount Ararat. The route starts near Tigranashen village and is suitable for beginners.",
+  "desc": "A moderate hike to the summit of Mount Mets Parakhadem (1,949 m) in Ararat Province, suitable for beginners, to catch views of Mount Ararat and watch the sunset.",
   "esora": "https://esora.app/en/events/hike-to-mets-parakhadem-peak-496816c2"
  },
  {
@@ -598,6 +573,31 @@
   "meet": null,
   "desc": "A light 10 km hike featuring mountain landscapes, rolling hills, the gorge of the Azat River, and a visit to the Symphony of Stones, with open views of the reservoir.",
   "esora": "https://esora.app/en/events/hiking-to-azat-reservoir-0277281f"
+ },
+ {
+  "slug": "mtnadzori-kirch-068a91c4",
+  "name": {
+   "en": "Mtnadzor Canyon",
+   "hy": "Մթնաձորի կիրճ",
+   "ru": "Ущелье Мтнадзор"
+  },
+  "start": "2026-11-29",
+  "end": null,
+  "org": null,
+  "ig": "",
+  "place": "Pink Canyon",
+  "lat": 40.067313,
+  "lng": 44.63609160000001,
+  "price": null,
+  "book": "https://www.instagram.com/p/DgKz_DIMlxw/",
+  "km": null,
+  "gain": null,
+  "summit": null,
+  "diffText": null,
+  "back": null,
+  "meet": null,
+  "desc": "",
+  "esora": "https://esora.app/en/events/mtnadzori-kirch-068a91c4"
  },
  {
   "slug": "halloween-rope-jumping-6ced2661",
@@ -1085,9 +1085,9 @@
   "end": null,
   "org": "ArmWay Hiking Club",
   "ig": "armway_hiking_club",
-  "place": "Republic Square",
-  "lat": 40.1776945,
-  "lng": 44.5126511,
+  "place": "Lastiver",
+  "lat": 40.9116546,
+  "lng": 45.104424099999996,
   "price": 9000,
   "book": "https://www.instagram.com/p/Df-WyU7oW5P/",
   "km": 7.0,
@@ -1096,7 +1096,7 @@
   "diffText": null,
   "back": null,
   "meet": "Republic Square, in front of the former Ministry of Foreign Affairs building.",
-  "desc": "A hike to Lastiver through dense forests, the Khachardzan River gorge, ancient caves, and wooden bridges.",
+  "desc": "A hike through Tavush Province to Lastiver. The route passes through dense forests, the Khachardzan River gorge, ancient caves, and wooden bridges.",
   "esora": "https://esora.app/en/events/lastiver-fbfc6cb2"
  },
  {
@@ -1252,7 +1252,7 @@
  {
   "slug": "gnishiki-kirchov-75f011c9",
   "name": {
-   "en": "Hiking through Gnishik Gorge",
+   "en": "Hiking Through Gnishik Gorge",
    "hy": "Արշավ Գնիշիկի կիրճով",
    "ru": "Поход по ущелью Гнишик"
   },
@@ -1269,10 +1269,35 @@
   "gain": 450.0,
   "summit": null,
   "diffText": null,
-  "back": null,
+  "back": "21:00",
   "meet": "35 Isahakyan Street.",
-  "desc": "A hike starting from the village of Gnishik into the depths of the gorge, featuring rocky canyon walls, deep valleys, changing landscapes, and 13th-century cross-stones before descending into another part of the canyon. The route offers distant panoramic views of Noravank Monastery, with a chance to",
+  "desc": "A hike through Vayots Dzor's Gnishik Gorge, starting from the village of Gnishik into the depths of the canyon. The route features sheer rock faces, deep ravines, 13th-century khachkars, panoramic views of Noravank monastery from above, and the possibility of spotting red-listed bezoar goats.",
   "esora": "https://esora.app/en/events/gnishiki-kirchov-75f011c9"
+ },
+ {
+  "slug": "khmbayin-tur-depi-ara-ler-hyusisits-harav-travers-e6d476c3",
+  "name": {
+   "en": "Mount Ara North-to-South Traverse",
+   "hy": "Արա լեռ, հյուսիսից հարավ տրավերս",
+   "ru": "Траверс горы Ара с севера на юг"
+  },
+  "start": "2026-12-12T08:00:00+04:00",
+  "end": null,
+  "org": "Trailo",
+  "ig": "trailo_tours",
+  "place": "Citadel",
+  "lat": 40.1897267,
+  "lng": 44.5220795,
+  "price": 14000,
+  "book": "https://www.instagram.com/p/DgMhlsMgiq4/",
+  "km": 13.0,
+  "gain": 727.0,
+  "summit": 1850.0,
+  "diffText": null,
+  "back": null,
+  "meet": "Citadel Business Center, 105/1 Teryan St.",
+  "desc": "A hiking traverse of Mount Ara from north to south. The route starts on the forested northern slopes, climbs to the summit with views of Aragats and the Geghama Mountains, and descends along the southern slopes overlooking Mount Ararat.",
+  "esora": "https://esora.app/en/events/khmbayin-tur-depi-ara-ler-hyusisits-harav-travers-e6d476c3"
  },
  {
   "slug": "dragons-fly-120m-rope-jumping-2f72ff8b",
@@ -1525,6 +1550,31 @@
   "esora": "https://esora.app/en/events/kilimanjaro-expedition-04b0f819"
  },
  {
+  "slug": "khuchapi-vank-e8a51750",
+  "name": {
+   "en": "Khuchap Monastery",
+   "hy": "Խուճապի վանք",
+   "ru": "Монастырь Хучап"
+  },
+  "start": "2027-03-14",
+  "end": null,
+  "org": "ArmWay Hiking Club",
+  "ig": "armway_hiking_club",
+  "place": "Khuchap Monastery",
+  "lat": 41.199688699999996,
+  "lng": 44.5638886,
+  "price": 14000,
+  "book": "https://www.instagram.com/p/DgMLceVRtDW/",
+  "km": null,
+  "gain": null,
+  "summit": null,
+  "diffText": null,
+  "back": null,
+  "meet": null,
+  "desc": "A hike to Khuchap Monastery in Lori Province, located on the Armenian side right by the Armenian-Georgian border.",
+  "esora": "https://esora.app/en/events/khuchapi-vank-e8a51750"
+ },
+ {
   "slug": "likiakan-arahet-kentronakan-7-or-lycian-way-7-days-c398c690",
   "name": {
    "en": "Lycian Way: Central Section Trek",
@@ -1610,9 +1660,9 @@
   "end": "2027-04-30",
   "org": "ArmLand Adventure & Travel",
   "ig": "armland_adventure",
-  "place": "Yerevan",
-  "lat": null,
-  "lng": null,
+  "place": "Everest Base Camp",
+  "lat": 28.0022779,
+  "lng": 86.8528655,
   "price": null,
   "book": "https://armland.am/hy/arm-everest-base-camp-trek/?utm_source=esora.app&utm_medium=referral&utm_campaign=Everest+Base+Camp+Trek",
   "km": null,
@@ -1621,7 +1671,7 @@
   "diffText": null,
   "back": null,
   "meet": null,
-  "desc": "A 15-day trek in Nepal to Mount Everest Base Camp (5,364 m).",
+  "desc": "A 15-day trek in the Himalayas to Everest Base Camp (5,364 m) with an ascent of Kala Patthar (5,545 m), visits to traditional Sherpa villages, and Buddhist monasteries.",
   "esora": "https://esora.app/en/events/arshav-nepalum-everesti-bazayin-chanbar-529977cb"
  },
  {
@@ -1773,6 +1823,31 @@
   "meet": null,
   "desc": "A six-day mountain trek around Lake Van to climb four peaks: Sipan (4058 m), Artos (3537 m), Varag (3181 m), and Nemrut (2948 m).",
   "esora": "https://esora.app/en/events/vana-lchi-4-gagat-8a9ead46"
+ },
+ {
+  "slug": "khmbayin-tur-depi-shveytsarakan-alper-ev-shamoni-ca5996c4",
+  "name": {
+   "en": "Tour to the Swiss Alps and Chamonix",
+   "hy": "Տուր դեպի Շվեյցարական Ալպեր և Շամոնի",
+   "ru": "Тур в Швейцарские Альпы и Шамони"
+  },
+  "start": "2027-06-05",
+  "end": "2027-06-12",
+  "org": "Trailo",
+  "ig": "trailo_tours",
+  "place": "Yerevan",
+  "lat": null,
+  "lng": null,
+  "price": null,
+  "book": "https://www.instagram.com/p/DgH3JKEgkMF/",
+  "km": null,
+  "gain": null,
+  "summit": null,
+  "diffText": null,
+  "back": null,
+  "meet": null,
+  "desc": "• Hotel with breakfast",
+  "esora": "https://esora.app/en/events/khmbayin-tur-depi-shveytsarakan-alper-ev-shamoni-ca5996c4"
  },
  {
   "slug": "iran-expedition-demavend-alam-kuh-7a681ecb",
@@ -2323,6 +2398,31 @@
   "meet": null,
   "desc": "Day 1",
   "esora": "https://esora.app/en/events/guided-mount-elbrus-ascent-9c71938c"
+ },
+ {
+  "slug": "verelk-elbrus-5642m-f800f020",
+  "name": {
+   "en": "Mount Elbrus Expedition (5642 m)",
+   "hy": "Վերելք Էլբրուս (5642 մ)",
+   "ru": "Восхождение на Эльбрус (5642 м)"
+  },
+  "start": "2027-08-12",
+  "end": "2027-08-19",
+  "org": "Trichq Hiking Club",
+  "ig": "trichq_hiking_club_",
+  "place": "Yerevan",
+  "lat": null,
+  "lng": null,
+  "price": null,
+  "book": "https://www.instagram.com/p/DgK2m6GiKl-/",
+  "km": null,
+  "gain": null,
+  "summit": 5642.0,
+  "diffText": null,
+  "back": null,
+  "meet": null,
+  "desc": "An ascent of Mount Elbrus (5642 m) with preparatory acclimatization climbs and gear consultations beforehand.",
+  "esora": "https://esora.app/en/events/verelk-elbrus-5642m-f800f020"
  },
  {
   "slug": "climbing-mount-elbrus-5642-m-7e1a8e04",
