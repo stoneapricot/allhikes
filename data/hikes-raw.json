@@ -1,30 +1,5 @@
 [
  {
-  "slug": "kruzhochki-run-f36a3a14",
-  "name": {
-   "en": "Kruzhochki Run",
-   "hy": "Kruzhochki Run",
-   "ru": "Kruzhochki Run"
-  },
-  "start": "2026-11-26T20:00:00+04:00",
-  "end": null,
-  "org": "Yerevan Run",
-  "ig": "yerevanrun",
-  "place": "Karen Demirchyan Sports and Concerts Complex",
-  "lat": 40.188302,
-  "lng": 44.483193,
-  "price": 0,
-  "book": "https://www.instagram.com/p/DgGJWQ0iDiO/",
-  "km": 5.0,
-  "gain": null,
-  "summit": null,
-  "diffText": null,
-  "back": null,
-  "meet": null,
-  "desc": "Distance: 5–7 km.",
-  "esora": "https://esora.app/en/events/kruzhochki-run-f36a3a14"
- },
- {
   "slug": "kaylarshav-depi-kobayr-a41dd7f6",
   "name": {
    "en": "Hiking to Kobayr, Odzun, and Horomayr",
@@ -1225,6 +1200,56 @@
   "esora": "https://esora.app/en/events/geghadir-jrvezh-trail-run-84940c3c"
  },
  {
+  "slug": "verkhom-po-olenim-tropam-42c4571a",
+  "name": {
+   "en": "Horseback Ride Along Deer Trails",
+   "hy": "Ձիարշավ եղնիկների արահետներով",
+   "ru": "Верхом по оленьим тропам"
+  },
+  "start": "2026-12-05T10:00:00+04:00",
+  "end": null,
+  "org": "Imagine Tour",
+  "ig": "tour_imagine",
+  "place": "Tsaghkadzor Ropeway",
+  "lat": 40.5346707,
+  "lng": 44.697003599999995,
+  "price": 30000,
+  "book": "https://www.instagram.com/p/DgNL6oHoaww/",
+  "km": null,
+  "gain": null,
+  "summit": null,
+  "diffText": null,
+  "back": null,
+  "meet": null,
+  "desc": "A 2.5-hour horseback ride along mountain trails through wild areas in Tsaghkadzor where deer live.",
+  "esora": "https://esora.app/en/events/verkhom-po-olenim-tropam-42c4571a"
+ },
+ {
+  "slug": "khayking-v-khosrovskiy-zapovednik-ef1da578",
+  "name": {
+   "en": "Hiking in Khosrov Forest State Reserve",
+   "hy": "Արշավ Խոսրովի անտառ պետական արգելոցում",
+   "ru": "Хайкинг в Хосровский заповедник"
+  },
+  "start": "2026-12-05T10:00:00+04:00",
+  "end": null,
+  "org": "Imagine Tour",
+  "ig": "tour_imagine",
+  "place": "Khosrov Forest State Reserve",
+  "lat": 40.0368625,
+  "lng": 44.9167969,
+  "price": 25000,
+  "book": "https://www.instagram.com/p/DgNVHlnoKyL/",
+  "km": 17.0,
+  "gain": 500.0,
+  "summit": null,
+  "diffText": "Light+",
+  "back": null,
+  "meet": null,
+  "desc": "A hiking route through Khosrov Forest along paths connected to the historic Silk Road trade routes, featuring gorges, mountain rivers, waterfalls, and the ancient history of the Ararat region.",
+  "esora": "https://esora.app/en/events/khayking-v-khosrovskiy-zapovednik-ef1da578"
+ },
+ {
   "slug": "mtnadzor-kaylarshav-hiking-in-mtnadzor-c6984076",
   "name": {
    "en": "Hiking in Mtnadzor",
@@ -1273,6 +1298,31 @@
   "meet": "35 Isahakyan Street.",
   "desc": "A hike through Vayots Dzor's Gnishik Gorge, starting from the village of Gnishik into the depths of the canyon. The route features sheer rock faces, deep ravines, 13th-century khachkars, panoramic views of Noravank monastery from above, and the possibility of spotting red-listed bezoar goats.",
   "esora": "https://esora.app/en/events/gnishiki-kirchov-75f011c9"
+ },
+ {
+  "slug": "armaghan-ler-dzmerayin-verelk-1a1e64cb",
+  "name": {
+   "en": "Mount Armaghan: Winter Ascent",
+   "hy": "Արմաղան լեռ․ ձմեռային վերելք",
+   "ru": "Гора Армаган: зимнее восхождение"
+  },
+  "start": "2026-12-06T08:00:00+04:00",
+  "end": null,
+  "org": "ArmHolic Tour Company",
+  "ig": "travel_with_armholic",
+  "place": "Ameriabank Kamar Branch",
+  "lat": 40.175763599999996,
+  "lng": 44.5100115,
+  "price": 9000,
+  "book": "https://www.instagram.com/p/DgNCVQcMCVS/",
+  "km": 13.0,
+  "gain": 600.0,
+  "summit": 2829.0,
+  "diffText": null,
+  "back": null,
+  "meet": "Kamar Business Center.",
+  "desc": "Winter ascent to Mount Armaghan (2,829 m) in Gegharkunik Province. At the summit stands a church built in 2009, offering views of the Geghama and Vardenis mountain ranges and Lake Sevan.",
+  "esora": "https://esora.app/en/events/armaghan-ler-dzmerayin-verelk-1a1e64cb"
  },
  {
   "slug": "khmbayin-tur-depi-ara-ler-hyusisits-harav-travers-e6d476c3",
@@ -1660,9 +1710,9 @@
   "end": "2027-04-30",
   "org": "ArmLand Adventure & Travel",
   "ig": "armland_adventure",
-  "place": "Everest Base Camp",
-  "lat": 28.0022779,
-  "lng": 86.8528655,
+  "place": "Yerevan",
+  "lat": null,
+  "lng": null,
   "price": null,
   "book": "https://armland.am/hy/arm-everest-base-camp-trek/?utm_source=esora.app&utm_medium=referral&utm_campaign=Everest+Base+Camp+Trek",
   "km": null,
@@ -1998,6 +2048,31 @@
   "meet": null,
   "desc": "A four-day trek to the highest peak of the Pontic Mountains, Mount Kaçkar (3,937 m).",
   "esora": "https://esora.app/en/events/verelk-kajkar-1c3b38ff"
+ },
+ {
+  "slug": "ararati-verelk-2027-5165-m-06970b78",
+  "name": {
+   "en": "Ascent of Mount Ararat and Sis",
+   "hy": "Արարատի և Սիսի վերելք",
+   "ru": "Восхождение на Арарат и Сис"
+  },
+  "start": "2027-07-19",
+  "end": "2027-07-24",
+  "org": "Lavash Tour",
+  "ig": "lavashtour",
+  "place": "Yerevan",
+  "lat": null,
+  "lng": null,
+  "price": null,
+  "book": "https://www.instagram.com/p/DgNO_aBjDTk/",
+  "km": null,
+  "gain": null,
+  "summit": 3896.0,
+  "diffText": null,
+  "back": null,
+  "meet": null,
+  "desc": "A 6-day expedition starting from Ani and Bayazet to the ascent of Sis (3896 m) and the summit of Mount Ararat (5165 m).",
+  "esora": "https://esora.app/en/events/ararati-verelk-2027-5165-m-06970b78"
  },
  {
   "slug": "ascent-of-mount-ararat-and-little-ararat-6-days-6f018523",
@@ -2610,7 +2685,7 @@
   "end": "2027-09-12",
   "org": "ArmLand Adventure & Travel",
   "ig": "armland_adventure",
-  "place": "House of Press",
+  "place": "Armland Adventure Club",
   "lat": 40.1703658,
   "lng": 44.5073948,
   "price": null,
